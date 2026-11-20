@@ -1,0 +1,73 @@
+Appendix B - Table of Functions of Universal Blocks
+Appendix B - Table of Functions of Universal Blocks
+
+           Each Universal Block has 3 inputs which have been marked out A, B and C. These inputs can be pointers or
+parameters. In the table below following convention of type denoting is used: A (big letter A) means that input  A  is
+parameter (value is assigned directly to it), but a (the small letter a) means that the input a is a pointer (it points PCH
+which contains input value). Inputs B and C are marked in the same way.
+           Caution: In OUT which is interpreted as logic value (0/1 or not/yes) abbreviation H is used for definition of any
+value different from zero (logic 1). For definition of  «logic 0» value character L is used.
+   Function                   Output                                                              Description
+    number             (OUT of  the block)
+
+                   a                                 Output OUT assumes a value which is defined by an input a. It serves for storing values
+        0                                            which are quickly changed – for 10 ms after execution of this block, value of output PCH
+                                                     will not change even if input value changes.
+        1          a + b + c                         Value OUT of the unit is the sum of three pointers a, b and c
+        2          a * b / c                         Product a * b divided by value c
+        3          (a + b)                           OUT of the unit = - (a + b) (negation the sum)
+        4          ABS (a + b)                       OUT of the unit = an absolute value of (a + b)
+        5          a + b - c                         OUT of the unit = a + b - c
+                   b ≤ a ≤ c                         Limitation of an output range. Output signal of the unit is between b (minimum) and c
+                                                     (maximum) according to rules described below:
+        6                                            If (a < b) → OUT = b
+                                                     If (a ≥ b) or (a ≤ c) → OUT = a
+                                                     If (a > c) → OUT = c
+        7          B ≤ a ≤ C                         The same as item 6 but B and C are constant parameters
+        8          a + B                             OUT = a + B, B is a parameter (e.g. addition of a constant offset)
+                   If c = H, OUT = b                     The multiplexer 1 from 2. Logic state of an input decides about output value a or b.
+
+
+                   If c = L, OUT = a                                                   C
+
+        9                                                                              A
+                                                                                                                     OUT
+                                                                                       B
+
+
+                   If (a ≥ B), OUT = a               If value of an input a is equal or higher than a threshold determined by input B an output
+       10          If (a <B), OUT = c                value a will be assumed. If value of an input a is less than threshold determined by input
+                                                     B an output value c will be assumed.
+       11          a ≥ (b * C)                       OUT = H when the inequality is carried out, OUT = L in all other cases
+       12          a ≥ (b + C)                       OUT = H when the inequality is carried out, OUT = L in all other cases
+                   a = (b+/-C)                       OUT = H when value is in the limits <b-C... b+C>,
+       13                                            OUT = L in all other cases
+
+                   If (a <b - C), OUT = L                A hysteresis. The output signal doesn't change for a which is in limits <b-C... b+C>
+                   If (a> b + C), OUT = H                                                        b
+                                                                                                     C     L1
+       14                                                                               b-C                          PCH
+                                                                                                           b+C
+                                                                                         0     C
+
+                                                                                                   a
+                   B + a * (C - B) / 1000            Graduation. The input value a will be transformed from a range 0...1000 (0.0...100.0 %) to
+                                                     a range determined by parameters B and C
+                                                                               .
+       15                                                                                                          C
+                                                                                a      1000                                  PCH
+
+                                                                                            0                      B
+
+                   (a - B)*1000 / (C - B)            Graduation. The input value a will be transformed from a range determined by
+                                                     parameters B and C to a range 0...1000 (0.0...100.0 %
+
+                                                                                                               1000
+       16
+                                                                               a        C                                   PCH
+
+                                                                                        B                      0
+
+
+
+Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS                                                                                73

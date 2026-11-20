@@ -1,0 +1,74 @@
+Rozdział 3: Panel sterujący OP-11
+3.8. Zmiana prędkości obrotowej silnika (częstotliwości wyjściowej) z panelu sterującego
+
+Prędkość   obrotową   silnika   można   w   prosty   sposób   zmienić   z   panelu
+sterującego,   jeśli   tylko   spełniony   jest   co   najmniej   jeden   z   poniższych                    A         LO        LO
+warunków:                                                                                               Zadajnik Panel
+     •    źródłem zadawania prędkości silnika (zadajnikiem) jest panel
+          sterujący (par. 2.2 = „133 Klaw.Z”),
+     •    zadajnik regulatora PID ustawiony został na sterowanie z panelu                               [ 0020.0]Hz
+          sterującego (par. 2.60 = „143 Kl.PID”),
+     •    aktywny jest jeden z czterech zadajników użytkownika (patrz
+          rozdział „11.5 Panel Sterowania - definiowanie zadajników                                     Rys. 3.5 - Zmiana częstotliwości
+          użytkownika„ na str. 56.                                                                      wyjściowej z panelu sterującego
+Wtedy w „widoku podstawowym” za pomocą klawiszy strzałek góra / dół „”
+ „   ”  można   zmieniać   prędkość   obrotową   silnika   –   rys.  3.5.   Powrotu   do
+„widoku podstawowego” dokonuje się klawiszem ESC.
+Uwaga: W danej chwili aktywny może być tylko jeden (lub żaden) z powyższych zadajników.
+
+3.9. Poziomy dostępu PD i blokady parametrów
+
+          Jeżeli z lewej strony parametru znajduje się symbol kłódki oznacza to, że jest on zablokowany i niemożliwa jest
+zmiana jego wartości. Możliwe przyczyny blokady edycji parametru:
+        •  niektóre parametry można zmieniać tylko wówczas, gdy przemiennik nie pracuje (silnik jest zatrzymany),
+        •  aktualny poziom dostępu nie pozwala na modyfikację danego parametru.
+
+Tabela 3.4 - Parametry odpowiedzialne za blokady i poziomy dostępu.
+  Parametr                                                                 Znaczenie
+      4.1        Włączenie blokady zmiany parametrów. Po ustawieniu na „001 TAK” niemożliwa będzie zmiana parametrów (poza
+                 „4.1 Blokada par.” i „4.2 Poziom/KOD”). Blokada ma dwa warianty w zależności od tego czy kod do poziomu dostępu 1
+                 (PD 1) jest ustawiony na 0 (wartość domyślna) czy na inną liczbę – patrz punkt 3.9.2 „Blokady parametrów” na str. 26.
+      4.2        Aktualny poziom dostępu PD (odczyt), wprowadzanie kodu dostępu (zapis).
+      4.3        Zmiana kodu dostępu dla aktualnego poziomu (widocznego w par. 4.2).
+      4.4        Ładowanie zestawu ustawień fabrycznych przemiennika
+      4.5        Blokada fizycznego zapisu parametrów do EEPROM.
+                 Parametr serwisowy - nie używać.
+                 Ustawienie tego parametru na „000 NIE” powoduje, że wszystkie dokonane zmiany nastaw parametrów są
+                 zapisywane tylko w pamięci ulotnej i zostaną utracone po wyłączeniu zasilania lub resecie przemiennika.
+
+3.9.1. Poziomy dostępu PD
+          W celu ochrony ustawień przemiennika przed ingerencją niepowołanych osób zastosowano 3 poziomy dostępu
+PD do parametrów:
+
+     •    PD 0 (poziom 0 - najniższy) – nie jest możliwa zmiana parametrów. Parametr „4.1 Blokada par.” ma zawsze
+          wartość „001 TAK” i nie jest możliwa jego zmiana.
+     •    PD 1 (poziom 1 - domyślny) – możliwa jest edycja parametrów (poza „4.4 Para. fabr.”
+          i „4.5 Wlacz EEPROM”).
+     •    PD 2 (poziom 2 - najwyższy) – przeznaczony do załadowania parametrów fabrycznych – patrz punkt „3.7.
+          Wgrywanie nastaw fabrycznych”.
+
+          Każdy poziom dostępu PD ma przypisany swój numer (kod), który jest liczbą z zakresu od 0 do 9999. Zmianę
+poziomu dostępu PD dokonuje się pośrednio, poprzez wpisanie w par. „4.2 Poziom/KOD” odpowiadającego mu numeru
+kodu zgodnie z tabelą 3.5.
+          Jeśli zostanie wpisany kod nie przypisany do któregoś z poziomów dostępu PD, to po zatwierdzeniu wpisanej
+wartości klawiszem Enter nie nastąpi zmiana poziomu dostępu PD.
+
+                     Tabela 3.5 - Domyślne wartości kodów przypisane do poziomów dostępu PD
+                         Poziom dostępu PD                       Kod (wartość domyślna)
+                                    1                                         0
+                                    2                                         1
+
+Użytkownik   ma   możliwość   przypisania  innego   kodu   do   danego   poziomu   dostępu   –   punkt   „3.9.3.   Zmiana   kodów
+dostępu”.
+
+Przykład zmiany poziomu dostępu na PD 2
+Domyślnie poziomowi dostępu PD 2 przypisany jest kod o wartości 1. Wartość tę należy wpisać par. „4.2 Poziom/KOD” i
+zatwierdzić klawiszem Enter         „   ”. Ekran przyjmie wygląd jak na rys. 3.6.
+
+
+
+
+
+
+
+Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS                                                                     25

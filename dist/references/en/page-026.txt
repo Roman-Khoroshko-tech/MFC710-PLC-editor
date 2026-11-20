@@ -1,0 +1,74 @@
+3.9.2. Parameters locks
+There are two ways to lock parameters editing: temporary and permanent.
+
+Temporary lock - without access code
+           Temporary lock consists in changing the value of par. "4.1 Par. block." to "001 YES" without changing the PD
+access   level   to   0.   This   will   temporarily   lock   (padlock   symbol)   all   parameters   (except   "4.1   Par.   block."   and   "4.2
+Level/CODE") and their values cannot be changed. Changing the value of par. "4.1 Par. block." on "000 NO" will enable
+the possibility of editing parameters.  After power off or reset of the inverter, parameters are automatically unlocked
+according to PD 1 access level.
+
+Note: temporary locking is possible only when the code for the PD 1 access level is set to 0. Otherwise, changing the
+parameter "4.1 Par. block." to "001 YES" will automatically change the PD access level to 0 - permanent lock.
+
+Permanent lock - with access code
+           The permanent lock of parameters consists in changing the default code (zero) assigned to the PD 1 access
+level to a value other than zero (see section 3.9.3. “Change of access codes”), and then changing the value of par. "4.1
+Par. block." to "001 YES". This will activate the PD 0 access level and permanently lock the possibility of modifying all
+parameters (padlock symbol) except for "4.1 Par. block". and "4.2 Level/CODE".
+           The parameters will also remain locked after the drive is powered down or reset.
+           In order to unlock the possibility of changing other parameters, the access level should be changed to PD 1 or
+PD 2 by entering the corresponding code in the "4.2 Level/CODE" parameter. The return to the temporary lock is done
+by changing the code to the PD 1 access level to 0.
+
+An example of using an access lock
+After power-up, the converter defaults to PD 1 access level (par. "4.2 Level/CODE = 1" and par. "4.1 Par. block" is set to
+"000 NO"). This enables the change of all parameters of the converter, except for restoring the factory settings (par.
+"4.4 Fact. set.") and changing the lock of physical parameter writing to the EEPROM of the converter (par. "4.5 En.
+EEPROM").
+
+      Temporary lock           To activate a temporary parameter lock, par. "4.1 Par. block." should be set to "001 YES".
+      Permanent lock           In order to activate permanent lock of parameters, first change the code assigned to the PD 1
+                               level to a value other than zero (eg 5), and then par. "4.1 Par. block." set to "001 YES". This
+                               will change the current access level to 0, which will be seen in par. "4.2 Level/CODE".
+
+After activating the lock, a padlock symbol will appear next to all locked parameters.
+
+
+Disabling permanent access lock
+           In order to disable permanent access lock:
+                •     activate access level PD1 → in par. "4.2 Level/CODE", enter the code that was assigned to PD1
+                      during the activation of the permanent lock,
+                •     change the PD1 code to "0" → in par. "4.3 New CODE", enter the value "0"
+                      (see section 3.9.3. “Change of access codes”).
+
+3.9.3. Change of access codes
+           The access codes to the PD 1 level and PD 2 level are changed by par. "4.3 New CODE". The change will
+affect the current PD access level.
+In order to change the code:
+     •     check that the PD access level displayed in par. "4.2 Level/CODE" is the level to which we want to assign a
+           new code,
+     •     in par. "4.3 New CODE" enter a new code,
+           It is recommended to save the new code to prevent its loss,
+     •     repeat entering the new code in par. "4.3 New CODE".
+From now switching to the access level for which the code has been changed will take place after entering this new
+code in par. "4.2 Level/CODE". Access level 0 has no code.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+26                                                  Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS

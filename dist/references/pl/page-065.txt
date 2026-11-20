@@ -1,0 +1,66 @@
+Załącznik A – Tabela Punktów Charakterystycznych
+
+  Nr PCH              Nazwa PCH                                                      Funkcja / wartość / uwagi
+     149        Obroty procent ABS          Wartość względna odpowiadająca aktualnej prędkości obrotowej silnika w stosunku do
+                                            znamionowej prędkości obrotowej. Rozdzielczość 0.1 %. Wartość bez znaku, nie zależy od
+                                            kierunku obrotów.
+     150        Obroty procent              jw. ale ze znakiem zależnym od kierunku obrotów
+                                            -1000 = -Nn, 0 = 0 obr/min, 1000 = Nn
+     151        Freq procent                Wartość względna odpowiadająca aktualnej częstotliwości wyjściowej przemiennika w stosunku
+                                            do znamionowej częstotliwości pracy silnika. Rozdzielczość 0.1 %. Wartość bez znaku, nie
+                                            zależy od kierunku obrotów.
+     152        Prąd procent                Wartość względna odpowiadająca aktualnemu prądowi wyjściowemu w stosunku do
+                                            znamionowego prądu silnika. Rozdzielczość 0.1 %.
+     153        Moment procent ABS          Wartość względna odpowiadająca aktualnemu momentowi obrotowemu silnika w stosunku do
+                                            momentu znamionowego. Rozdzielczość 0.1 %. Wartość bez znaku (zawsze dodatnia).
+     154        Moment procent              Wartość względna odpowiadająca aktualnemu momentowi obrotowemu silnika w stosunku do
+                                            momentu znamionowego. Rozdzielczość 0.1 %. Wartość ze znakiem, dodatnia oznacza, że
+                                            falownik napędza silnik natomiast ujemna że falownik hamuje silnik.
+     155        Moc procent                 Wartość względna odpowiadająca aktualnej mocy wyjściowej przemiennika w stosunku do mocy
+                                            znamionowej silnika. Rozdzielczość 0.1 %. Wartość ze znakiem, dodatnia oznacza, że falownik
+                                            napędza silnik natomiast ujemna że falownik hamuje silnik.
+     156        U silnika procent           Wartość względna odpowiadająca aktualnemu napięciu wyjściowemu przemiennika w stosunku
+                                            do napięcia znamionowego silnika. Rozdzielczość 0.1 %. Wartość bez znaku (zawsze dodatnia).
+     157        Uchyb PID                   Wartość aktualnego uchybu regulatora PID (Uchyb = Wejście PID – Zadajnik PID)
+                                            Rozdzielczość 0.1 %
+     158        Zadajnik PID                Wartość zadajnika regulatora PID – Kopia PCH.142 dla zadawania PID z RS lub PCH.143 dla
+                                            zadawania PID z panelu, lub kopia innego PCH w zależności od parametru 2.70
+     159        Temperatura silnika         Szacowana temperatura silnika w %, rozdzielczość 0.1 %
+     160        Wejście PID                 Wartość wejścia regulatora PID – służy do podłączenia sygnału regulowanego procesu. Jest to
+                                            kopia PCH określonego parametrem 2.61
+     161        Zadajnik SP                 Wyjście zadajnika Sterownika Pomp. W trybie pracy SP bez regulatora PID wartość tego PCH
+                                            powinna być wybrana jako główny zadajnik układu (parametr 2.2 lub 2.3)
+     162        N Procesu                   Prędkość procesu. Wartość tego PCH wynika z aktualnej prędkości obrotowej silnika i
+                                            współczynnika skali określonego parametrem 4.25. Służy do przeliczenia prędkości obrotowej
+                                            na wielkość wyjściową (np. m/s)
+     163        Zadajnik momentu            Wartość zadajnika momentu. Kopia PCH określonego parametrami 2.9 lub 2.10. Rozdzielczość
+                                            0.1 %, zakres 0.0...100.0 %
+     164        Zadajnik A                  Wartość zadajnika A wybranego parametrem 2.2. Rozdzielczość 0.1 Hz, wartość ze znakiem
+     165        Zadajnik B                  Wartość zadajnika B wybranego parametrem 2.3. Rozdzielczość 0.1 Hz, wartość ze znakiem
+     166        Zadajnik                    Wyjście bloku sterowania – ostateczna wartość zadajnika częstotliwości, wartość ze znakiem
+                                            decydującym o kierunku obrotów (plus = prawo, minus = lewo). Rozdzielczość 0.1 Hz
+     167        Zadajnik ABS                Wyjście bloku sterowania – ostateczna wartość zadajnika częstotliwości, wartość bez znaku
+                                            (zawsze dodatnia). Rozdzielczość 0.1 Hz
+     168        F stała 1                   Częstotliwość stała nr 1, kopia parametru 2.33
+     169        F stała 2                   Częstotliwość stała nr 2, kopia parametru 2.34
+     170        F stała 3                   Częstotliwość stała nr 3, kopia parametru 2.35
+     171        F stała 4                   Częstotliwość stała nr 4, kopia parametru 2.36
+     172        F stała 5                   Częstotliwość stała nr 5, kopia parametru 2.37
+     173        F stała 6                   Częstotliwość stała nr 6, kopia parametru 2.38
+     174        F stała 7                   Częstotliwość stała nr 7, kopia parametru 2.39
+     175        Freq Last                   Częstotliwość uśredniona
+     176        F po Ramp procent           Wartość PCH.166 przeliczona na % względem częstotliwości znamionowej silnika z
+                ABS                         uwzględnieniem działania procedur przyspieszania / zwalniania (ramp). Rozdzielczość 0.1 %.
+                                            Dla trybu pracy U/f wartość tego PCH odpowiada aktualnej częstotliwości wyjściowej falownika.
+                                            Wartość bez znaku (nie zależy od kierunku obrotów)
+     177        Lobr                        Wartość licznika obrotów
+     178        ZU1                         Wartość zadajnika Użytkownika nr 1
+     179        ZU2                         Wartość zadajnika Użytkownika nr 2
+     180        ZU3                         Wartość zadajnika Użytkownika nr 3
+     181        ZU4                         Wartość zadajnika Użytkownika nr 4
+     182        fzA_procent                 Wartość odpowiada PCH.164 (Zadajnik A) przeliczonej do wielkości względnej odniesionej do
+                                            częstotliwości znamionowej silnika. Wartość bez znaku, rozdzielczość 0.1 %
+     183        fzB_procent                 Wartość odpowiada PCH.165 (Zadajnik B) przeliczonej do wielkości względnej odniesionej do
+                                            częstotliwości znamionowej silnika. Wartość bez znaku, rozdzielczość 0.1 %
+
+Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS                                                                                 65

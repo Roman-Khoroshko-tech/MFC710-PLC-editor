@@ -1,0 +1,74 @@
+Appendix C – Table of MFC710 frequency converter's parameters
+
+Parameter / Name                     Function                Available options / measurement unit                               Factory          Change
+                                                                                                                                 setting          during
+                                                                                                                                               operation
+5.18 P3 active             Pump 3 activation                 000 Sw.Off –  pump disabled                                     003 In.C3         YES
+                                                             001 In.C1 … 006 In.C6 – pump enabled by one of
+                                                             digital inputs DI1 … DI6
+                                                             007 Sw.On – pump enabled
+5.19 P4 active             Pump 4 activation                 000 Sw.Off –  pump disabled                                     004 In.C4         YES
+                                                             001 In.C1 … 006 In.C6 – pump enabled by one of
+                                                             digital inputs DI1 … DI6
+                                                             007 Sw.On – pump enabled
+5.20 P5 active             Pump 5 activation                 000 Sw.Off –  pump disabled                                     005 In.C5         YES
+                                                             001 In.C1 … 006 In.C6 – pump enabled by one of
+                                                             digital inputs DI1 … DI6
+                                                             007 Sw.On – pump enabled
+5.21 Rep. time             Time of automatic                 1 ... 32000 h                                                   24 h              YES
+                           replacement of leading
+                           pump
+5.22 ON delay              Delay of switching on             A time limit before switching on the additional pump            10.0 s            YES
+                                                             0.0 … 60.0 sec
+5.23 OFF delay             Delay of switching off            A time limit before switching of the additional pump            10.0 s            YES
+                                                             0.0 … 60.0 sec
+5.24 Rep. Block.           Postponing automatic              PCH.000 ... PCH.511.                                            100.0 %           YES
+                           change of leading pump at         When referencing-unit of Pump Controller stays                  (PCH 147)
+                           high load                         above this value, then automatic change will be
+                                                             postponed till decrease of the pressure.
+5.25 f thresh.             F threshold                       Frequency of enabling additional pump: 0.0...50.0 Hz            25.0 Hz           YES
+5.26 Insensiv.             Insensibility                     Insensibility of enabling  / disabling additional pump:         5.0 %             YES
+                                                             0.0...20.0 %
+5.27 Ref. choice           Selection of referencing-         Source of pressure signal:                                      144 Ref.A0        YES
+                           unit for pumps control            144 Ref.A0 ... 146 Ref.A2 – from analog referencing-
+                                                             units (direct control of pumps group)
+                                                             158 RefPID – from PID controller output (most
+                                                             common setting)
+                                                             Note: parameters 147 100% … 157 PIDerr are
+                                                             service parameters and should not be used!
+5.28 P limit               Max number of                     1 ... 5                                                         4                 YES
+                           simultaneously operating
+                           pumps
+5.29 P6 active             Pump 6 activation                 000 Sw.Off –  pump disabled                                     000 Sw.Off        YES
+                                                             001 In.C1 … 006 In.C6 – pump enabled by one of
+                                                             digital inputs DI1 … DI6
+                                                             007 Sw.On – pump enabled
+5.30 Block time            Minimum break time                0 … 32000                                                       0 s               YES
+                           operation of the pump
+5.40 Sw. Seq ON            Enable Sequencer                  Signal of enabling PLC sequencer block:                         000 Sw.Off        YES
+                                                             PCH.000 Sw.Off ... PCH.511
+                                                             PCH.000 = SEQ disabled
+5.41 nu                                                      Service parameter
+5.42 Seq max               Number of sequencer               2 ... 8                                                         8                 YES
+                           states
+5.43 Seq time 1            Time of 1st state duration        PCH.000 Sw.Off ... PCH.511                                      PCH.320           YES
+                                                                                                                             Constant.1
+5.44 Seq time 2            Time of 2nd state duration        PCH.000 Sw.Off ... PCH.511                                      PCH.321           YES
+                                                                                                                             Constant. 2
+5.45 Seq time 3            Time of 3rd state duration        PCH.000 Sw.Off ... PCH.511                                      PCH.322           YES
+                                                                                                                             Constant.3
+5.46 Seq time 4            Time of 4th state duration        PCH.000 Sw.Off ... PCH.511                                      PCH.323           YES
+                                                                                                                             Constant.4
+5.47 Seq time 5            Time of 5th state duration        PCH.000 Sw.Off ... PCH.511                                      PCH.324           YES
+                                                                                                                             Constant.5
+5.48 Seq time 6            Time of 6th state duration        PCH.000 Sw.Off ... PCH.511                                      PCH.325           YES
+                                                                                                                             Constant.6
+5.49 Seq time 7            Time of 7th state duration        PCH.000 Sw.Off ... PCH.511                                      PCH.326           YES
+                                                                                                                             Constant.7
+5.50 Seq time 8            Time of 8th state duration        PCH.000 Sw.Off ... PCH.511                                      PCH.327           YES
+                                                                                                                             Constant.8
+
+
+
+
+Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS                                                                              93

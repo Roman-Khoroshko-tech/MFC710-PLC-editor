@@ -1,0 +1,78 @@
+Section 12. PLC controller
+12.4. Curve shaping unit
+
+           PLC     controller     contain     Curve                                           Y
+Shaping   Unit   (CSU)   which   can   serve,   for                                      y4
+example, for formation of the characteristic of
+the    speed    referencing     -   changing    the                                                                            y = f(x)
+characteristic   from   linear   to   determined
+broken curve. CSU is the functional converter
+of   any   input   value   X   into   output   value   Y,
+which depends on the form of a curve which
+is defined with help of 5 points (X, Y) (see fig.                                        y2   y3
+12.5).   These   points   are   determined   as
+parameters of CSU. Input value X is chosen
+by   parameter   5.101.   Output   value   Y   is   in             x1                                                                     x5      X
+PCH.315.                                                                             x2                x3          x4
+
+
+                                                                                              y1
+
+                                                                                         y5
+
+
+
+
+
+
+                                                                        Fig. 12.5 -  E characteristic received due to joint of 5 points
+                                                                                 (x1, y1), (x2, y2), (x3, y3), (x4, y4), (x5, y5).
+
+
+
+ Parameter                            Description                           Parameter                             Description
+    5.101          The pointer for an input (a source of value of the          5.107           Y3 - parameter y points 3. range-32000...32000
+                   X-input)
+    5.102          X1 - parameter x points 1. range-32000...32000              5.108           X4 - parameter x points 4. range-32000...32000
+    5.103          Y1 - parameter y points 1. range-32000...32000              5.109           Y4 - parameter y points 4. range-32000...32000
+    5.104          X2 - parameter x points 2. range-32000...32000              5.110           X5 - parameter x points 5. range-32000...32000
+    5.105          Y2 - parameter y points 2. range-32000...32000              5.111           Y5 - parameter y points 5. range-32000...32000
+    5.106          X3 - parameter x points 3. range-32000...32000
+
+CAUTION: conditions X1 ≤ X2 ≤ X3 ≤ X4 ≤ X5 should be satisfied.
+
+12.5. Constant values
+
+           In cases, when we want to determine a constant value as an input of any PLC block, we can use one of 24
+constant values accessible as PCH with number from 320 to 343. These values can be set in range from -32000 to
+32000 by means of parameters 5.120 do 5.143.
+
+Example when there is a necessity to use a constant.
+
+It is necessary to execute operation Y = 5 * X where X is an input value and Y is output value. Using universal units
+PLC, we can execute operation (A * B / C) This is function number 2 (see. Appendix B). We assume A = X, B = 5 and
+also C = 1, in result we have function Y (an output of the universal unit) = X * 5 / 1
+
+How shall we do it?
+With parameter 5.120 we set value of Constant 1 to 5,
+    –   parameter 5.120 sets up value of the Constant number 1 on 5,
+    –   parameter 5.121 sets up value of the Constant number 2 on 1,
+    –   parameter 6.1 (function of the unit 1) is set up on value 2 (function 2, that is A * B / C),
+    –   parameter 6.2 (input A of the unit 1) is set up on a signal source X, for example, the analog input 0 = PCH.134),
+    –   parameter 6.3 (input B of the unit 1) is set up on the Constant number 1 = PCH.320,
+    –   parameter 6.4 (input C of the unit 1) is set up on the Constant number 2 = PCH.321.
+
+
+In this connection inputs B and C of functions 2 are pointers,
+instead of parameters, so they cannot be assigned a constant
+values.   It   is   necessary   to   choose   the   Constant   number   1
+(PCH.320) from among characteristic points for input B and the
+Constant number 2 (PCH.321) for input C.
+The parameter 5.144 “Switching on PLC” is set up on YES.
+Since this time PCH.256 (the output of the unit number 1) is the                     Fig. 12.6 - Unit diagram implementing an example. Value
+value corresponding to result of operation X * 5, that in our                                          PCH.256 = PCH.134 * 5
+case corresponds to value of an analog input 0 increased 5 times, which means it changes in limits from 0 to 5000
+(0.0...500.0 %) (fig. 12.6).
+
+
+Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS                                                                         63

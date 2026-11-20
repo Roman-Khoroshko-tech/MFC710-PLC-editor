@@ -1,0 +1,89 @@
+Załącznik A – Tabela Punktów Charakterystycznych
+
+  Nr PCH             Nazwa PCH                                                     Funkcja / wartość / uwagi
+     312       SEKW NUMER SEQ              Sterownik PLC. Układ sekwensera. Numer aktywnego stanu. Wartość tego PCH może
+                                           przyjmować zakres 0...7. (0 = STAN 1 ... 7 = STAN 8)
+     313       MULTIPLEXER 1               Sterownik PLC. Wyjście multipleksera nr 1. Wartość = L gdy multiplekser 1 jest wyłączony
+     314       MULTIPLEXER 2               Sterownik PLC. Wyjście multipleksera nr 2. Wartość = L gdy multiplekser 1 jest wyłączony
+     315       Wyjście BKK                 Sterownik PLC. Wyjście Y Bloku Kształtowania Krzywej X→Y
+  316...319                                Rezerwa. Wartość = zawsze 0
+     320       STAŁA 1                     Wartość stała nr 1. Może służyć np. jako współczynnik w obliczeniach dokonywanych za
+                                           pomocą Bloków Uniwersalnych. Jest to kopia parametru nr 5.120
+     321       STAŁA 2                     Wartość stała nr 2. Może służyć np. jako współczynnik w obliczeniach dokonywanych za
+                                           pomocą Bloków Uniwersalnych. Jest to kopia parametru nr 5.121
+  322...343    STAŁA 3...24                Wartość stała nr 3...24. Może służyć np. jako współczynnik w obliczeniach dokonywanych za
+                                           pomocą Bloków Uniwersalnych. Jest to kopia parametru nr 5.122...5.143
+  344...383                                Rezerwa. Wartość = zawsze 0
+  384...447    PCH RS 1...64               Punkty Charakterystyczne dostępne do zapisu przez łącze RS. Możliwe jest więc zewnętrzne
+                                           sterowanie procesem, który pobiera dane z tych PCH
+  448...511    PCH EXT 1...64              PCH przewidziane do obsługi przez opcjonalny moduł rozszerzeń (dodatkowe we/wy
+                                           analogowe, cyfrowe itp.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS                                                                             67

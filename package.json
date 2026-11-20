@@ -1,0 +1,18 @@
+{
+  "name": "mfc710-plc-studio",
+  "version": "0.1.0-rc.1",
+  "private": true,
+  "description": "Offline visual editor for the built-in MFC710 PLC",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node build-pages.cjs",
+    "test": "node run-tests.cjs",
+    "test:report": "node run-tests.cjs --report",
+    "test:browser": "node run-tests.cjs --browser",
+    "check:pages": "node check-pages.cjs",
+    "start": "node server.cjs"
+  }
+}

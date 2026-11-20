@@ -1,0 +1,86 @@
+Załącznik B – Tabela funkcji Bloków Uniwersalnych
+
+  Nr funkcji           Wyjście (OUT bloku) =                                                            Opis
+       39          Szybki licznik                        Licznik zlicza impulsy z wejścia cyfrowego WeC5. Maksymalna częstotliwość
+                   a – ilość impulsów do zliczenia       zliczanych impulsów 2kHz. Blok może być użyty tylko raz w strukturze programu.
+                                                         Jeśli i_i < (a*B) → OUT = L                                          a
+                   B – mnożnik                           Jeśli i_i ≥ (a*B) → OUT = H
+                                                         Jeśli c≠0 → OUT = H                                                  B                      OUT
+                   c - reset                             i_i – ilość impulsów zliczonych z wejścia WeC5.                      c
+                                                         Aktualizacja wyjścia OUT bloku co czas T.
+
+       40          Sekwenser                             Patrz opis sekwensera – rozdz.12.2
+                   wejścia - nieaktywne
+       41          Multiplekser 1                        Patrz opis multipleksera – rozdz. 12.3
+                   wejścia - nieaktywne
+       42          Multiplekser 2                        Patrz opis multipleksera – rozdz. 12.3
+                   wejścia - nieaktywne
+       43          Blok kształtowania krzywej            Patrz opis bloku Kształtowania krzywej – rozdz. 12.4
+       45          Odczyt parametrów                     Wyjście bloku przyjmuje wartość dowolnego parametru z grup 0÷6.
+                   przemiennika
+                   A – nr grupy
+                   B – nr parametru
+       46          Odczyt Modbus                         Wyjście bloku przyjmuje wartość odczytaną poprzez Modbus z adresu o numerze B
+                   A – nr układu                         w urządzeniu o numerze A - patrz z tab. 13.2.
+                   B – adres rejestru                    Uwaga: odczytu może dokonywać tylko urządzenie master (o numerze jednostki = 0)
+
+       47          Zapis Modbus                          Układ poprzez Modbus zapisuje wartość z PCH określonego parametrem „c” w
+                   A – nr układu                         urządzeniu o numerze A pod adresem B - patrz z tab. 13.2.
+                   B – adres rejestru                    Uwaga: zapisu może dokonywać tylko urządzenie master (o numerze jednostki = 0)
+                   c – PCH
+       48          Odczyt CAN                            Wyjście bloku przyjmuje wartość odczytaną poprzez CAN z adresu o numerze B
+                   A – nr układu                         w urządzeniu o numerze A - patrz z tab. 13.2.
+                   B – adres rejestru                    Uwaga: wymagana jest wewnętrzna przystawka CAN dostarczana przez producenta
+                                                         urządzenia.
+       49          Zapis CAN                             Układ poprzez CAN zapisuje wartość z PCH określonego parametrem „c” w
+                   A – nr układu                         urządzeniu o numerze A pod adresem B - patrz z tab. 13.2.
+                   B – adres rejestru                    Uwaga: wymagana jest wewnętrzna przystawka CAN dostarczana przez producenta
+                   c – PCH                               urządzenia.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS                                                                                 71

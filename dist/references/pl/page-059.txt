@@ -1,0 +1,84 @@
+Rozdział 12:  Sterownik PLC
+12.6. Przykład wykorzystania PLC
+
+          Przykład   opisany   w   tym   podrozdziale   opisuje   jak   za   pomocą                   N [%]                            koniec rozpędzania
+wbudowanego   PLC   sterować   takimi   wielkościami   jak   prędkość   wyjściowa   i               N2
+czasy rozpędzania silnika.
+
+ZADANIE:   Zmodyfikować   tak   przebieg   startu   układu,   aby   charakterystyka
+prędkości silnika w czasie rozpędzania miała przebieg taki, jak na rys. 12.7.
+Na   rys.   12.7   można   wyróżnić   3   strefy:   I   strefa   –   rozpędzanie   powolne   –                       T
+(dynamika 1), II strefa – czas podtrzymania T, oraz III strefa – rozpędzanie                        N1
+szybkie (dynamika 2).                                                                                   I           II          III
+
+                                                                                                                                               t
+Układ   MFC710   umożliwia   ustawienie   2   różnych   czasów   rozpędzania   i                     0           t1       t2
+zwalniania – dynamika 1 i dynamika 2. Czasy te określa się parametrami 1.30,                           Rys. 12.7 – Żądana charakterystyka
+1.31, 1.32, 1.33. Parametr 1.36 decyduje o tym, która dynamika jest obecnie                                         rozpędzania
+aktywna. Parametr 1.36 jest wskaźnikiem, można więc go ustawić tak, aby o
+wyborze dynamiki decydował któryś z bloków PLC.
+Na rys. 12.7 widać, że po rozpędzeniu układu (z dynamiką 1) do prędkości N1 należy odczekać czas T i następnie
+rozpędzić układ (z dynamiką 2) do prędkości N2. Należy zmodyfikować parametr 2.2 (Zadajnik A) tak aby któryś
+z bloków PLC określał względny poziom prędkości, do której układ ma się obecnie rozpędzić (poziom ten odnosi się do
+częstotliwości znamionowej silnika).
+          Na rys. 12.8 zaprezentowano strukturę realizującą postawione zadanie. Blok 1 jest komparatorem reagującym
+na pierwszą wartość prędkości. W prezentowanym przypadku rozpędzanie z dynamiką 1 realizowane jest do prędkości
+wynoszącej   20.0%   (ST1)   prędkości   znamionowej.   Sygnał   informujący   o   osiągnięciu   pierwszej   wartości   prędkości
+załącza Blok 3. Blok 3 jest licznikiem zliczającym w dół od wartości 5 (ST3) z taktowaniem co 1s (czas potrzymania trwa
+5s). Sygnał wyjściowy Bloku 3 steruje Blokiem 4 i przełączaniem typu dynamiki (dynamika 1 lub dynamika 2). Blok 4 jest
+przełącznikiem, który w zależności od sygnału na wejściu podaje do zadajnika A pierwszą lub drugą wartość prędkości
+(ST1/ST2). Wartości czasu podtrzymania (ST3), pierwszej (ST1) i drugiej (ST2) wartości prędkości można modyfikować
+podłączając w żądane miejsce np. wejście analogowe lub jeden z zadajników użytkownika. Warunkiem poprawnego
+działania przykładu jest zachowanie warunku: ST2 > ST1.
+
+Aby zrealizować tę strukturę, należy:
+        1.Zdefiniować Blok 1 (p. 6.1 = 12, p. 6.2 = PCH.176, p. 6.3 = PCH.320, p. 6.4 = 0),
+        2.Zdefiniować Blok 2 (p. 6.5 = 23, p. 6.6 = PCH.256),
+        3.Zdefiniować Blok 3 (p. 6.9 = 27, p. 6.10 = PCH.91, p. 6.11 = PCH.257, p. 6.12 = PCH.322),
+        4.Zdefiniować Blok 4 (p. 6.13 = 9, p. 6.14 = PCH.321, p. 6.15 = PCH.320, p. 6.16 = PCH.258),
+        5.Zdefiniować Blok 5 (p. 6.17 = 23, p. 6.18 = PCH.258),
+        6.Parametr 2.2 (Zadajnik A) ustawić na PCH.259 w sposób opisany w rozdziale 3.2.1 i 3.2.8,
+        7.Parametr 1.36 (Wybór dynamiki) ustawić na PCH.260,
+        8.Włączyć PLC ustawiając parametr 5.144 na TAK.
+W powyższym przykładzie parametr 5.120 (ST1) będzie określał próg prędkości N1 [rozdzielczość 0.1% czyli 1000 =
+100.0%], parametr 5.121 (ST2) będzie określał próg prędkości N2 [rozdzielczość 0.1% czyli 200 = 20.0%] a parametr
+5.122 (ST3) czas T z rozdzielczością do jednej sekundy.
+
+
+    ST2
+          1000
+
+    ST1                                                               BL4
+           200                                                                                               PAR. 2.2
+                                                                       a               OUT                     Zadajnik A
+                                                                       b
+                                                                       c
+
+    PCH91                         BL3                                 F9
+        Zegar_1s                   a CLK           OUT                        BL5                            PAR. 1.36
+     ST3                           b SET          Count                        a                               Dynamika
+            5                      c VAL          type 2                                 OUT
+                                  F27                                                 NOT(a)
+
+                                                                              F23
+
+
+    PCH176                        BL1                                         BL2
+       F_po_ramp                   a               OUT                         a         OUT
+     VAL 1                         b                                                  NOT(a)
+            0                      C        H if a>=b+C                       F23
+                                  F12
+
+                             Rys. 12.8 – Struktura sterowania realizująca postawione zadanie
+
+
+
+
+
+
+
+
+
+
+
+Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS                                                                     59

@@ -1,0 +1,62 @@
+Appendix C – Table of MFC710 frequency converter's parameters
+
+Parameter / Name                    Function               Available options / measurement unit                             Factory         Change
+                                                                                                                             setting         during
+                                                                                                                                           operation
+5.51 Seq Nxt              Source of “next state”           PCH.000 Sw.Off (disabled) ... PCH.511                         PCH.000           YES
+                          signal                                                                                         Sw.Off
+5.52 Seq Prv              Source of “previous state”       PCH.000 Sw.Off (disabled) ... PCH.511                         PCH.000           YES
+                          signal                                                                                         Sw.Off
+5.53 Seq Clr              Source of “sequencer             PCH.000 Sw.Off (disabled) ... PCH.511                         PCH.000           YES
+                          restart” signal                                                                                Sw.Off
+5.54 Seq Set              Source of “sequencer             PCH.000 Sw.Off (disabled) ... PCH.511                         PCH.000           YES
+                          setting” signal                                                                                Sw.Off
+5.55 Seq SV               Sequence to which                PCH.000 Sw.Off (disabled) ... PCH.511                         PCH.000           YES
+                          sequencer block will be set      (value 0 = sequencer 0)                                       Sw.Off
+                          after “Seq Set” signal
+5.60 En. Mux1             Signal of switching on           PCH.000 Sw.Off (disabled) ... PCH.511                         PCH.000           YES
+                          MUX1 PLC block                   PCH.000 = MUX1 disabled                                       Sw.Off
+5.61 nu                                                    Service parameter
+5.62 Mux1 DV              Value of MUX1 output             -32000 ... 32000                                              0                 YES
+                          (PCH.313) when MUX1 is
+                          disabled (par. 5.60)
+5.63 Mux1 Sel             Source of MUX1 input             PCH.000 ... PCH.511                                           PCH.000           YES
+                          selection
+5.64 Mux1 In.1            Value of input 1 MUX1            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.65 Mux1 In.2            Value of input 2 MUX1            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.66 Mux1 In.3            Value of input 3 MUX1            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.67 Mux1 In.4            Value of input 4 MUX1            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.68 Mux1 In.5            Value of input 5 MUX1            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.69 Mux1 In.6            Value of input 6 MUX1            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.70 Mux1 In.7            Value of input 7 MUX1            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.71 Mux1 In.8            Value of input 8 MUX1            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.80 En. Mux2             Signal of switching on           PCH.000 ... PCH.511                                           PCH.000           YES
+                          MUX1 PLC block                   PCH.000 = MUX2 disabled                                       Sw.Off
+5.81 nu                                                    Service parameter
+5.82 Mux2 DV              Value of MUX2 output             -32000 ... 32000                                              0                 YES
+                          (PCH.314) when MUX2 is
+                          disabled (par. 5.80)
+5.83 Mux2 Sel             Source of MUX2 input             PCH.000 ... PCH.511                                           PCH.000           YES
+                          selection
+5.84 Mux2 In.1            Value of input 1 MUX2            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.85 Mux2 In.2            Value of input 2 MUX2            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.86 Mux2 In.3            Value of input 3 MUX2            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.87 Mux2 In.4            Value of input 4 MUX2            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.88 Mux2 In.5            Value of input 5 MUX2            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.89 Mux2 In.6            Value of input 6 MUX2            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.90 Mux2 In.7            Value of input 7 MUX2            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.91 Mux2 In.8            Value of input 8 MUX2            PCH.000 ... PCH.511                                           PCH.000 (=0)      YES
+5.100 nu                                                   Service parameter
+5.101 CSU In.             CSU Input (X)                    PCH.000 (Sw.Off) ... PCH.511                                  PCH.000           YES
+5.102 CSU X1              Point 1, value X                 -32000 ... 32000 (see CSU description)                        0                 YES
+5.103 CSU Y1              Point 1, value Y                 -32000 ... 32000                                              0                 YES
+5.104 CSU X2              Point 2, value X                 -32000 ... 32000                                              0                 YES
+5.105 CSU Y2              Point 2, value Y                 -32000 ... 32000                                              0                 YES
+5.106 CSU X3              Point 3, value X                 -32000 ... 32000                                              0                 YES
+5.107 CSU Y3              Point 3, value Y                 -32000 ... 32000                                              0                 YES
+5.108 CSU X4              Point 4, value X                 -32000 ... 32000                                              0                 YES
+5.109 CSU Y4              Point 4, value Y                 -32000 ... 32000                                              0                 YES
+5.110 CSU X5              Point 5, value X                 -32000 ... 32000                                              0                 YES
+5.111 CSU Y5              Point 5, value Y                 -32000 ... 32000                                              0                 YES
+
+94                                                   Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS

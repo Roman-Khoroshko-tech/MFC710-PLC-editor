@@ -1,0 +1,66 @@
+Appendix A – Table of Characteristic Points
+Appendix A – Table of Characteristic Points
+
+Caution: In these PCH which are interpreted as logical values (0/1 or NO/YES), there is abbreviation «H» used to refer
+to value different form zero (logical 1). For definition of value "logical 0" abbrevation «L» is used.
+
+    PCH                PCH name                                                           Function / value /  note
+     000        Switch Off                    Value always = L (logical 0)
+     001        In.C1                         State of digital input DI1; L = 0V, H = 24V
+     002        In.C2                         State of digital input DI2; L = 0V, H = 24V
+     003        In.C3                         State of digital input DI3; L = 0V, H = 24V
+     004        In.C4                         State of digital input DI4; L = 0V, H = 24V
+     005        In.C5                         State of digital input DI5; L = 0V, H = 24V
+     006        In.C6                         State of digital input DI6; L = 0V, H = 24V
+     007        Switch on                     Value always = H (logical 1)
+     008        F1                            Key F1 (for future use) Value = always 0
+     009        F2                            Key F2 (for future use) Value = always 0
+     010        F3                            Key F3 (for future use) Value = always 0
+  011...019                                   Reserve. Value = always 0
+     020        Failure AI0                   H =  absence of  “living zero” at the Analog Input 0 (mode 2...10V, 4...20mA).
+      21        Failure AI1                   H = absence of  “living zero” at the  Analog Input 1 (mode 2...10V, 4...20мA)
+      22        Failure AI2                   H = absence of  “living zero” at the  Analog Input 2 (mode 2...10V, 4...20мA)
+   23...29                                    Reserve. Value = always 0
+                                              H = Remote Control (digital inputs) permits  START
+     030        Remote start                  This PCH operates also when remote control is not chosen, but the converter ignores it when the
+                                              control differs from remote.
+                                              H = Local Control (Panel) permits  START
+     031        Local start                   This PCH operates also when local control is not chosen,
+
+     032        RS start                      H = Control  through the connection  RS  allows START.
+                                              This PCH operates also when RS control is not chosen.
+                                              Direction of operation with Remote Control. L = determined with sign of referencing-unit, H =
+     033        Remote reverse                opposite (depends on state of digital inputs and mode of Remote Start - par. 2.8).
+                                              This PCH operates even if the chosen control is different from remote.
+                                              Direction of operation with Local Control. 0 = determined with sign of referencing-unit, H =
+     034        Local reverse                 opposite (depends on pressing the key  “Left” or “Right” on the control panel).
+                                              This PCH operates even if the chosen control is different from local.
+     035        Ref.-unit sign                Ref.-unit sign . (L = positive ref.-unit, H = negative ref.-unit)
+     036        Below f_stop                  H = the converter is blocked because frequency referencing-unit is lower then STOP frequency.
+                                              It is determined with par. 2.13. This function will be switched on only in case of par. 2.14 = YES
+                                              H = currently active control allows to START the drive. But it doesn't always mean that the drive
+     037        START                         operates! One of the several blocking types may be switched on or the drive be running out after
+                                              braking (directly before stopping)
+                                              Operating direction at currently chosen control. L = is  determined with a sign of referencing-unit,
+     038        Reverse                       H = opposite. Equal to PCH.33 for remote control, PCH.34 for local control, L for RS control. At
+                                              other control modes (defined by parameters / pointers 2.4 or 2.5) it is a copy of value PCH
+                                              chosen by parameter / pointer 2.6 or 2.7.
+     039        A/B control                   L = Control A active, H = Control B active
+                                              0 = general absence of permission to control the converter with RS, H = permission to control
+                                              the converter with RS. Value of  PCH is a copy of PCH which is set by parameter/pointer 4.7.
+                                              If control through RS is selected (par. 2.4 or 2.5) and PCH.40 = L, then the referencing-unit
+     040        Enable RS                     (value - PCH.166) and also PCH.37 and  PCH.38 are set on value zero. If control is chosen with
+                                              par.2.4 or 2.5 and it differs from RS and PCH.40 = H, in this case it is possible to force externally
+                                              control through RS (see section 13).
+
+
+     041        Operation permission          L = general lack of permission to work, H = permission to work
+     042        Fconst is active              H when referencing-unit of constant  frequency is switched on. Depends from PCH, defined in
+                                              the parameters 2.30,2.31,2.32.
+  043...058                                   Reserve. Value = always 0
+     059        PUMP 6                        Pump system control. H = pump 6 operates
+     060        K_ZERO                        Value = always 0
+     061        OPERATION                     H when drive operates
+
+
+68                                                        Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS

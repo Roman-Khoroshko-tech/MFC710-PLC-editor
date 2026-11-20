@@ -1,0 +1,65 @@
+Appendix A – Table of Characteristic Points
+
+     PCH               PCH name                                                            Function / value /  note
+     146         Value A2                     Value of analog input 0 multiplied by parameter of scale 2.45 and added offset – parameter 2.48
+     147         100%                         In all cases value 1000 corresponds to 100.0 %  of referencing-units
+     148         RC Output                    Output of  reeler calculator device, it serves for torque referencing. Resolution  0.1 %, range
+                                              0.0...100.0 %
+     149         ABS rotations percent        Relative value which corresponds to current rotational motor speed compared to the rated motor
+                                              rotation speed. Resolution 0.1 %. Value without a sign, it doesn’t depend on direction of rotation.
+     150         Rotations percent            The same but with sign depending on direction of rotation
+                                              -1000 = -Nn, 0 = 0 rpm, 1000 = Nn
+                                              Relative value which corresponds to current output frequency of the drive compared to the rated
+     151         Frequency percent            motor frequency. Resolution 0.1 %. Value without a sign, it doesn’t depend on direction of
+                                              rotation.
+     152         Current percent              Relative value which corresponds to present output current compared to rated current of the
+                                              motor. Resolution 0.1 %.
+     153         ABS torque percent           Relative value which corresponds to current torque of the motor compared to the rated torque.
+                                              Resolution  0.1 %. Value without a sign (always positive).
+                                              Relative value which corresponds to current torque of the motor compared to rated torque.
+     154         Torque percent               Resolution 0.1 %. Value with positive sign means that the drive gives the electric energy to the
+                                              motor, negative - the drives brakes the motor (gets el. energy from the motor).
+                                              Relative value which corresponds to current output power of the drive compared to rated power
+     155         Power percent                of the motor. Resolution  0.1 %. Value with positive sign means that the drive rotates the motor,
+                                              negative - the drive breaks the motor.
+     156         Motor voltage percent        Relative value which corresponds to current output voltage of the drive compared to rated
+                                              voltage of the motor. Resolution 0.1 %. Value without a sign (always positive).
+     157         PID error                    Value of present error of PID controller ( error =  PID input – PID ref.-unit). Resolution 0.1 %
+                                              Value of the PID controller referencing-unit – copy of PCH.142 for referencing-units PID with RS
+     158         PID ref.-unit                or PCH.143 for referencing-units PID  from the panel, or copy of the other PCH. It depends on
+                                              parameter 2.70
+     159         Motor temperature            Estimated motor temperature in %, resolution 0.1 %.
+     160         PID Input                    Value of PID controller input. It serves for connection of regulated process signal. This is a copy
+                                              of PCH, determined with parameter 2.61
+     161         FR ref.-unit                 Output of pump control system ref.-unit. Value of this PCH should be chosen as a main ref.-unit
+                                              of the drive in Fast Review operation mode without PID controller (parameter 2.2 or 2.3)
+                                              Speed of the process. Value of this PCH is a result of current rotation speed of the motor and
+     162          N of the process            scale factor determined with parameter 4.25. It serves for converting rotation speed to output
+                                              value (e.g. m/s).
+     163         Torque ref.-unit             Value of the torque referencing-unit. Copy of PCH determined by parameters 2.9 or 2.10.
+                                              Resolution 0.1 %, range 0.0...100.0 %.
+     164         Ref.-unit А                  Value of ref.-unit A chosen with parameter 2.2. Resolution 0.1 Hz, value with sign.
+     165         Ref.-unit В                  Value of ref.-unit B chosen with parameter 2.3. Resolution 0.1 Hz, value with sign.
+     166         Ref.-unit                    Output of control unit – the final value of the frequency converter, value with a sign determining
+                                              the direction of rotation (plus = to the right, minus = to the left). Resolution 0.1 Hz.
+     167         ABS ref.-unit                Output of the control unit – the final value of the frequency ref.-unit, value without a sign(always
+                                              positive). Resolution 0.1 Hz.
+     168         Fconst 1                     Constant frequency number 1,  Copy of parameter 2.33
+     169         Fconst 2                     Constant frequency number 2,  Copy of parameter 2.34
+     170         Fconst 3                     Constant frequency number 3,  Copy of parameter 2.35
+     171         Fconst 4                     Constant frequency number 4,  Copy of parameter 2.36
+     172         Fconst 5                     Constant frequency number 5,  Copy of parameter 2.37
+     173         Fconst 6                     Constant frequency number 6,  Copy of parameter 2.38
+     174         Fconst 7                     Constant frequency number 7,  Copy of parameter 2.39
+     175         Freq Last                    Average frequency
+                                              Value PCH.166 converted to % compared to rated motor frequency taking into account the
+     176         f Ramp ABS percent           procedures of acceleration/braking (ramp). Interval is 0.1 %. For operating mode U/f value of this
+                                              PCH corresponds to current output frequency of the drive. Value without sign (doesn’t depend on
+                                              direction of rotation).
+     177         Lrot                         Value of rotation counter.
+     178         UR1                          Value of the user referencing-unit number 1.
+     179         UR2                          Value of the user referencing-unit number 2.
+     180         UR3                          Value of the user referencing-unit number 3.
+     181         UR4                          Value of the user referencing-unit number 4.
+
+70                                                        Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS

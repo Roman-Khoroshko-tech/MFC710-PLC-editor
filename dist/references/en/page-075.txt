@@ -1,0 +1,87 @@
+Appendix B - Table of Functions of Universal Blocks
+
+   Function                     Output                                                                Description
+    number              (OUT of  the block)
+
+                    Current value of the               The modulo «up»  counter with an input of max value and with an input of the account
+                    counter                            permission ENABLES.
+                    a = CLK,
+                    b = ENABLE,
+                    c = max value
+       28
+
+
+
+
+
+                    f_out = f_in / (2*C);              The divider of frequency with ENABLE input.
+                    a = f_in,
+                    b = ENABLE,
+                    C = the divider
+       29
+
+
+
+
+
+                    Current value of the               The counter "up" with an input of                    OUT                                     0
+                    counter                            permission ENABLE and reseting by
+       30           a = CLK,                           inverting.                                           CLR
+                    b = ENABLE,                        Caution: after overflow (max = 65535) the            ENA
+                    c = NOT (CLR)                      counter starts with null.
+                                                                                                            CLK
+
+                    0...7 depends on state of          The binary decoder. It replaces binary coded number with a decimal number in a band
+                    inputs a, b, c                     <0...7> according to the table.
+
+                                                                     a                            b                          c                        OUT
+                                                                     0                             0                         0                          0
+                                                                     1                             0                         0                          1
+       31                                                            0                             1                         0                          2
+                                                                     1                             1                         0                          3
+                                                                     0                             0                         1                          4
+                                                                     1                             0                         1                          5
+                                                                     0                             1                         1                          6
+                                                                     1                             1                         1                          7
+                    Positive or negative               Caution: the minimal duration of triggering impulse TRIG is 1*T*. Impulse on OUT is
+                    impulse                            maximally  1*T*   delayed  in  comparison   with  TRIG  signal.   Next  use  of  generator  isn't
+                    a = TRIG (down-up                  possible until termination of current impulse.
+                    transition),
+       32           Timp = B * 5*T + T,
+                    C = polarity
+
+
+
+
+       33           Pulse is positive or               It is analogous to function 32. Difference: inputs b and c are pointers - it is possible to
+                    negative                           change a pulse duration and its polarity in PLC operating mode.
+                    Generator signal                   Ton = B * T*,                    Ton     Toff     Ton     Toff                 Ton    Toff     Ton
+                    a = ENABLE,                        Toff = C * T*
+       34           B, C – times (periods)                                     OUT
+
+                                                                               ENABLE
+
+                    Impulse delayed                    Top1 = B * T*, Top2 = C * T*              Timp1Timp1                           T
+                                                                                                                                       imp2
+                    a = input impulse,                 Detection of the next                                   W1                                           W2
+                    B, C – delay times-                pulse begins in points W1         a
+       35                                              and W2.                         OUT
+                                                                                                                                           Timp2
+                                                                                                 Top1     Top2                  Top1                    Top2
+
+                    Switch on / switch off             Top = C * T*                                                                 T
+                                                                                                                                     op
+                    function with delayed shut
+                    down                                                               a
+                    a = switching on impulse                                           b
+       36           (leading edge)
+                    b =  switching off impulse                                         OUT
+                    (leading edge)
+                    C =  delay on shut down
+
+
+
+
+*T = par 5.145 x 0.2 ms
+
+Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS                                                                                       75

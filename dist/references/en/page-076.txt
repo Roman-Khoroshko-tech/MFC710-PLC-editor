@@ -1,0 +1,82 @@
+Appendix B - Table of Functions of Universal Blocks
+
+   Function                     Output                                                                Description
+    number              (OUT of  the block)
+                    Switch on / switch off             Top = C * T*. If the pulse                   Top
+                    function with delayed              b appears in time Top,          a
+                    switching on                       switching on will not take
+       37           a = switching on impulse           place.                          b
+                    (leading edge)
+                    b =  switching off impulse                                         OUT
+                    (leading edge)
+                    C =  delay on switching on
+                    The filter of analog signals       Sum (a+b) is taken as input value of the filter. Tf = C * T*
+                    a, b - inputs of the filter
+                    C - the constant of the                                                          input
+       38           filter
+                                                                                                         output
+
+
+                                                                                                  0             T     t
+
+                                                                                                                  f
+                    Fast counter                       The counter converts pulses from digital input DI5. The maximum frequency of converted
+                    a - quantity of impulses for       impulses is 2 kHZ. The unit can be used only once in structure of the program.
+                    counting                           If i_i < (a*B) → OUT = L
+       39           B - a multiplier                   If i_i ≥ (a*B) → OUT = H                                                      a
+                    c - restart                        If c≠0 → OUT = H                                                              B                 OUT
+                                                       i_i - quantity of the impulses counted from input DI5.                        c
+                                                       Update of the OUT output each T period.
+       40           Sequencer                          Look at sequencer description – section 12.2
+                    inputs – not active
+       41           Multiplexer 1                      Look at multiplexer description – section 12.3
+                    inputs – not active
+       42           Multiplexer 2                      Look at multiplexer description – section  12.3
+                    inputs – not active
+       43           Unit of curve formation            Look at description of the unit of curve formation – section 12.4
+                    Reading drive parameters           OUT of the unit equal the value of any parameter from group 0÷6
+       45           A – group number
+                    B – register address
+                    Modbus reading                     OUT of the unit equal the value reading by Modbus from “A” drive number, from “B”
+       46           A – drive number                   address – see tab. 13.2.
+                    B – register address
+                                                       Note: reading can be done only by master drive (drive number = 0)
+                    Modbus writing                     The value from PCH number “c” is writing by Modbus to “A” drive, “B” address – see
+       47           A – drive number                   tab. 13.2.
+                    B – register address
+                    c – PCH                            Note: reading can be done only by master drive (drive number = 0)
+                    CAN reading                        OUT of the unit equal the value reading by CAN from “A” drive number, “B” address – see
+       48           A – drive number                   tab. 13.2.
+                    B – register address
+                                                       Note: reading can be done only by master drive (drive number = 0)
+                    CAN writing                        The value from PCH number “c” is writing by CAN to “A” drive, “B” address – see
+       49           A – drive number                   tab. 13.2.
+                    B – register address
+                    c – PCH                            Note: reading can be done only by master drive (drive number = 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+76                                                        Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS

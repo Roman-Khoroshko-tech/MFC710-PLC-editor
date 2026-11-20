@@ -1,0 +1,73 @@
+Załącznik C – Tabela parametrów przemiennika MFC710
+
+  Parametr / Nazwa                  Funkcja                             Zakres nastaw / jednostka                          Nastawa          Zmiana
+                                                                                                                          fabryczna         podczas
+                                                                                                                                             pracy
+GRUPA 5 – STEROWNIK ZESPOŁU POMP, BLOKI STEROWNIKA PLC
+5.1 We. V                 We.V                            Źródło prędkości liniowej                                     144 Zad.A0         TAK
+                          Wybór sygnału prędkości         144 Zad.A0 – z zadajnika analogowego 0
+                          liniowej                        145 Zad.A1 – z zadajnika analogowego 1
+                                                          146 Zad.A2 – z zadajnika analogowego 2
+5.2 We. F                 We.F                            Źródło zadajnika siły:                                        147 100.0%         TAK
+                          Wybór sygnału zadajnika         144 Zad.A0 – z zadajnika analogowego 0
+                          siły                            145 Zad.A1 – z zadajnika analogowego 1
+                                                          146 Zad.A2 – z zadajnika analogowego 2
+                                                          147 100.0%
+5.3 V max                 Max. prędkość liniowa           Prędkość liniowa odpowiadająca 100.0% sygnału                 10.00 m/s          TAK
+                                                          prędkości liniowej: 0.00 ... 320.00 [m/s]
+5.4 d min                 Minimalna średnica wałka        0.0 .. 3200.0 [mm]                                            100.0 mm           TAK
+5.5 d max                 Maksymalna średnica             0.0 ... 3200.0 [mm]                                           500.0 mm           TAK
+                          wałka
+5.6 M min                 Moment tarcia                   0.0 ... 100.0 %                                               10.0%              TAK
+Sterownik POMP – nastawy fabryczne dotyczą zestawu nastaw fabrycznych nr 8
+5.10 Wlacz Pompy          Aktywacja Układu                Włączanie sterownika zespołu pomp                             000 NIE            NIE
+                          Sterownika Zespołu Pomp         000 NIE – sterownik wyłączony
+                                                          001 TAK – sterownik włączony
+5.11 Cfg. P1              Konfiguracja Pompy 1            000 SIEC – praca tylko z sieci                                001                TAK
+                                                          001 MFC/SIEC – praca z przemiennika lub z sieci               MFC/SIEC
+5.12 Cfg. P2              Konfiguracja Pompy 2            000 SIEC – praca tylko z sieci                                001                TAK
+                                                          001 MFC/SIEC – praca z przemiennika lub z sieci               MFC/SIEC
+5.13 Cfg. P3              Konfiguracja Pompy 3            000 SIEC – praca tylko z sieci                                001                TAK
+                                                          001 MFC/SIEC – praca z przemiennika lub z sieci               MFC/SIEC
+5.14 Cfg. P4              Konfiguracja Pompy 4            000 SIEC – praca tylko z sieci                                001                TAK
+                                                          001 MFC/SIEC – praca z przemiennika lub z sieci               MFC/SIEC
+5.15 Cfg. P5              Konfiguracja Pompy 5            000 SIEC – praca tylko z sieci                                001                TAK
+                                                          001 MFC/SIEC – praca z przemiennika lub z sieci               MFC/SIEC
+5.16 Wlacz P1             Włączanie Pompy 1               000 Wylacz – pompa wyłączona                                  001 We.C1          TAK
+                                                          001 We.C1 ... 006 We.C6 – pompa włączana jednym
+                                                          z wejść cyfrowych
+                                                          007 Wlacz -pompa włączona
+5.17 Wlacz P2             Włączanie Pompy 2               000 Wylacz – pompa wyłączona                                  002 We.C2          TAK
+                                                          001 We.C1 ... 006 We.C6 – pompa włączana jednym
+                                                          z wejść cyfrowych
+                                                          007 Wlacz -pompa włączona
+5.18 Wlacz P3             Włączanie Pompy 3               000 Wylacz – pompa wyłączona                                  003 We.C3          TAK
+                                                          001 We.C1 ... 006 We.C6 – pompa włączana jednym
+                                                          z wejść cyfrowych
+                                                          007 Wlacz -pompa włączona
+5.19 Wlacz P4             Włączanie Pompy 4               000 Wylacz – pompa wyłączona                                  004 We.C4          TAK
+                                                          001 We.C1 ... 006 We.C6 – pompa włączana jednym
+                                                          z wejść cyfrowych
+                                                          007 Wlacz -pompa włączona
+5.20 Wlacz P5             Włączanie Pompy 5               000 Wylacz – pompa wyłączona                                  005 We.C5          TAK
+                                                          001 We.C1 ... 006 We.C6 – pompa włączana jednym
+                                                          z wejść cyfrowych
+                                                          007 Wlacz -pompa włączona
+5.21 Czas Wym.            Czas automatycznej              1 ... 32000 h                                                 24 h               TAK
+                          wymiany pompy
+                          przewodniej
+5.22 Opoznie. Za          Opóźnienie Załączania           Opóźnienie zał. pompy dodatkowej: 0.0 ... 60.0 s              10.0 s             TAK
+5.23 Opoznie. Wy          Opóźnienie Wyłączania           Opóźnienie wył. pompy dodatkowej: 0.0 ... 60.0 s              10.0 s             TAK
+5.24 Blok. Wym.           Odroczenie                      PCH.000 ... PCH.511                                           100.0 %            TAK
+                          automatycznej wymiany           Gdy zadajnik Sterownika Pomp utrzymuje się                    (PCH 147)
+                          pomp przy dużym                 powyżej tej wartości wówczas wymiana
+                          obciążeniu                      automatyczna zostanie odłożona do czasu spadku
+                                                          ciśnienia.
+5.25 f progowa            F progowa                       Częstotliwość zał. pompy dodatkowej: 0.0 ... 50.0 Hz          25.0 Hz            TAK
+5.26 Nieczulosc           Nieczułość                      Nieczułość zał. / wył. pompy dodatkowej: 0.0...20.0 %         5 %                TAK
+
+
+
+
+
+Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS                                                                          87

@@ -1,0 +1,70 @@
+Załącznik B – Tabela funkcji Bloków Uniwersalnych
+
+  Nr funkcji           Wyjście (OUT bloku) =                                                             Opis
+       18          a OR b OR c                            OUT bloku jest sumą logiczną wartości wejść a, b i c. UWAGA: nie jest to operacja
+                                                          na bitach! (0 oznacza wejście = 0; 1 oznacza wejście ≠ 0)
+                                                                     a                        b                         c                       OUT
+                                                                     0                         0                        0                         0
+                                                                     0                         0                        1                         1
+                                                                     0                         1                        0                         1
+                                                                     0                         1                        1                         1
+                                                                     1                         0                        0                         1
+                                                                     1                         0                        1                         1
+                                                                     1                         1                        0                         1
+                                                                     1                         1                        1                         1
+       19          a AND b AND c                          OUT bloku jest iloczynem logicznym wartości wejść a, b i c
+                                                                     a                        b                         c                       OUT
+                                                                     0                         0                        0                         0
+                                                                     0                         0                        1                         0
+                                                                     0                         1                        0                         0
+                                                                     0                         1                        1                         0
+                                                                     1                         0                        0                         0
+                                                                     1                         0                        1                         0
+                                                                     1                         1                        0                         0
+                                                                     1                         1                        1                         1
+       20          a XOR b                                OUT bloku jest wynikiem operacji Exclusive OR na wejściach a i b
+                                                                         a                                 b                                OUT
+                                                                         0                                 0                                  0
+                                                                         0                                 1                                  1
+                                                                         1                                 0                                  1
+                                                                         1                                 1                                  0
+       21          NOT (a OR b OR c)                      OUT bloku jest negacją sumy logicznej wartości wejść a, b i c (NOR)
+       22          NOT (a AND b AND c)                    OUT bloku jest negacją iloczynu logicznego wartości wejść a, b i c (NAND)
+       23          NOT (a)                                Logiczna negacja wielkości wejściowej a
+       24          wg. tabeli prawdy.                                                                                                  R  S  OUT
+                   a = R, b = S                                                                                       RR               0  0  n-1
+                                                          Przerzutnik typu RS. Priorytet ma wejście R                       Q          0  1  1
+                                                                                                                      S                1  0  0
+                                                                                                                                       1  1  0
+
+       25          wg. tabeli prawdy                                                                                              R  D  CLK   OUT
+                   a = D, b = CLK, c = R                                                                                          0  0  0     n-1
+                                                                                                       b     CLK                  0  0  1     n-1
+                                                          Przerzutnik typu D (Latch).                                             0  0        0
+                                                                                                       a     D     Q      PCH     0  1        1
+                                                                                                       c     R                    0  1  0     n-1
+                                                                                                                                  0  1  1     n-1
+                                                                                                                                  1  X  X     0
+
+       26          Aktualna wartość licznika              Licznik z wejściami zerowania i ustawiania kierunku liczenia
+                   a = CLK, b = CLR, c = DIR              Minimalny okres dla CLK to 20ms                OUT                                              0
+                   Uwaga: wyjście tego licznika           Dotyczy to wszystkich liczników
+                   może przyjmować wartości                                                              CLR
+                   dodatnie i ujemne z zakresu                                                           DIR
+                   <-32768...32767>.                                                                     CLK
+
+       27          Aktualna wartość licznika              Licznik typu “one shoot” “w dół” z wejściem ustawiania na wartość początkową (SET)
+                                                          i wejściem wartości początkowej                                                Wartość
+                   a = CLK, b = SET,                                                                OUT                                  początkowa    0
+                   c = Wartość Początkowa                                                           SET
+
+                                                                                                    CLK
+
+
+
+
+
+
+
+
+Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS                                                                                  69

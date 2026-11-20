@@ -1,0 +1,64 @@
+Załącznik A – Tabela Punktów Charakterystycznych
+Załącznik A – Tabela Punktów Charakterystycznych
+
+Uwaga: W PCH, które należy interpretować jako wartości logiczne (0/1 lub NIE/TAK), użyto skrótu H jako określenia
+dowolnej wartości różnej od zera (logiczne 1). Dla określenia wartości “logiczne 0” użyto skrótu L.
+
+  Nr PCH             Nazwa PCH                                                     Funkcja / wartość / uwagi
+     000       Wylacz                      Wartość zawsze równa L (logiczne 0)
+     001       We.C1                       Stan wejścia cyfrowego nr 1; L = 0V, H = 24V
+     002       We.C2                       Stan wejścia cyfrowego nr 2; L = 0V, H = 24V
+     003       We.C3                       Stan wejścia cyfrowego nr 3; L = 0V, H = 24V
+     004       We.C4                       Stan wejścia cyfrowego nr 4; L = 0V, H = 24V
+     005       We.C5                       Stan wejścia cyfrowego nr 5; L = 0V, H = 24V
+     006       We.C6                       Stan wejścia cyfrowego nr 6; L = 0V, H = 24V
+     007       Włącz                       Wartość zawsze równa H (logiczne 1)
+     008       F1                          Klawisz F1 (do wykorzystania w przyszłości) Wartość = zawsze 0
+     009       F2                          Klawisz F2 (do wykorzystania w przyszłości) Wartość = zawsze 0
+     010       F3                          Klawisz F3 (do wykorzystania w przyszłości) Wartość = zawsze 0
+ 011 … 019                                 Rezerwa. Wartość = zawsze 0
+     020       Awaria We.A0                H = brak “żyjącego zera” na Wejściu Analogowym 0 (tryb 2...10V, 4...20mA)
+     021       Awaria We.A1                H = brak “żyjącego zera” na Wejściu Analogowym 1 (tryb 2...10V, 4...20mA)
+     022       Awaria We.A2                H = brak “żyjącego zera” na Wejściu Analogowym 2 (tryb 2...10V, 4...20mA)
+ 023 … 029                                 Rezerwa. Wartość = zawsze 0
+     030       Start zdalny                H = Sterowanie Zdalne (wejścia cyfrowe) zezwala na START. Ten PCH działa także gdy
+                                           wybrano sterowanie inne niż zdalne, nie jest jednak brany przez układ pod uwagę przy
+                                           sterowaniu innym niż zdalne
+     031       Start lokalny               H = Sterowanie Lokalne (Panel) zezwala na START
+                                           Ten PCH działa także gdy wybrano sterowanie inne niż lokalne
+     032       Start RS                    H = Sterowanie przez łącze RS zezwala na START
+                                           Ten PCH działa także gdy wybrano sterowanie inne niż RS
+     033       Rewers zdalny               Kierunek pracy przy Sterowaniu Zdalnym. L = wynikający ze znaku zadajnika, H = przeciwny
+                                           (zależy od stanu wejść cyfrowych i trybu Startu Zdalnego – parametr 2.8)
+                                           Ten PCH działa także gdy wybrano sterowanie inne niż zdalne
+     034       Rewers lokalny              Kierunek pracy przy Sterowaniu Lokalnym. L = wynikający ze znaku zadajnika, H = przeciwny
+                                           (zależy czy na panelu sterującym wciśnięto przycisk lewo czy prawo)
+                                           Ten PCH działa także gdy wybrano sterowanie inne niż lokalne
+     035       Znak zadajnika              Znak zadajnika. (L = zadajnik dodatni, H = zadajnik ujemny)
+     036       Poniżej f_stop              H = układ zablokowany ponieważ zadajnik poniżej częstotliwości STOP określonej parametrem
+                                           2.13. Funkcja aktywna tylko dla parametru 2.14 = TAK
+     037       START                       H = aktualnie aktywne sterowanie zezwala na start układu. Nie zawsze oznacza to, że układ
+                                           pracuje! Może być aktywna jedna z blokad lub układ może znajdować się w fazie wybiegu po
+                                           rampie (tuż przed zatrzymaniem)
+     038       Rewers                      Kierunek pracy przy aktualnie wybranym sterowaniu. L = wynikający ze znaku zadajnika,
+                                           H = przeciwny. Równy PCH.33 dla sterowania zdalnego, równy PCH.34 dla sterowania
+                                           lokalnego, L dla sterowania RS. Przy sterowaniu innym (określają to parametry / wskaźniki 2.4
+                                           lub 2.5) jest kopią wartości PCH wybranego parametrem / wskaźnikiem 2.6 lub 2.7
+     039       Sterowanie AB               L = aktywne sterowanie A, H = aktywne sterowanie B
+     040       Enable RS                   L = generalny brak zezwolenia na sterowanie układem z RS, H = jest zezwolenie na sterowanie
+                                           układem z RS. Wartość tego PCH jest kopią PCH określonego parametrem / wskaźnikiem 4.7.
+                                           W przypadku wyboru sterowania przez RS (par. 2.4 lub 2.5) i gdy PCH.40 = L wówczas zadajnik
+                                           (zvalue - PCH.166) oraz PCH.37 i PCH.38 ustawiane są na wartość zero. Jeżeli parametrami
+                                           2.4 lub 2.5 wybrano sterowanie inne inż RS i PCH.40 = H, wówczas możliwe jest zewnętrzne
+                                           wymuszenie sterowania przez RS (patrz rozdział 13).
+     041       Zezwolenie pracy            L = generalny brak zezwolenia na pracę, H = jest zezwolenie na pracę
+     042       Aktywne Fstale              H gdy aktywny jest zadajnik od częstotliwości stałych. Zależy od PCH określonych par. 2.30,
+                                           2.31 i 2.32
+ 043 … 058                                 Rezerwa. Wartość = zawsze 0
+     059       POMPA 6                     Sterownik Pomp. H = pracuje pompa 6
+     060       K_ZERO                      Wartość = zawsze 0
+     061       PRACA                       H gdy układ pracuje
+     062       GOTOWY                      H gdy układ jest gotowy do pracy (nie ma awarii)
+     063       AWARIA                      H gdy wystąpiła awaria
+
+Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS                                                                              63

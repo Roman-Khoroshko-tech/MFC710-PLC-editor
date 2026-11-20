@@ -1,0 +1,71 @@
+Appendix C – Table of MFC710 frequency converter's parameters
+
+Parameter / Name                     Function               Available options / measurement unit                               Factory         Change
+                                                                                                                               setting          during
+                                                                                                                                             operation
+4.72 CAN bdrate           CAN bandwidth rate                0 = 62.5 kbit                                                  3                 YES
+                                                            1 = 125 kbit
+                                                            3 = 250 kbit
+                                                            5 = 500 kbit
+                                                            7 = 1 Mbit
+4.73 CAN MTo              Service parameter                 10 ms … 500 ms                                                 30 ms             YES
+4.74 CAN STo              Service parameter                 0.2 s … 60.0 s                                                 5.0 s             YES
+4.75 CAN dst.num          CAN destination unit              0 … 31                                                         0                 YES
+                          number
+4.80 ACT sel.1            Current value of any              Par. 0.001 … Par. 6.255                                        Par. 0.001        YES
+                          selected parameter or             PCH. 000 … PCH. 511
+                          characteristic point PCH          Note: “Par. 0.001” means “Par. 0.1”
+                          available through RS                       “Par. 0.010” means “Par. 0.10”
+                                                                     “Par. 1.001” means “Par. 1.1”
+4.81 ACT sel.2            Same as above                     Same as above                                                  Par. 0.001        YES
+4.82 ACT sel.3            Same as above                     Same as above                                                  Par. 0.001        YES
+4.83 ACT sel.4            Same as above                     Same as above                                                  Par. 0.001        YES
+4.84 ACT sel.5            Same as above                     Same as above                                                  Par. 0.001        YES
+4.85 ACT sel.6            Same as above                     Same as above                                                  Par. 0.001        YES
+4.86 ACT sel.7            Same as above                     Same as above                                                  Par. 0.001        YES
+4.87 ACT sel.8            Same as above                     Same as above                                                  Par. 0.001        YES
+GROUP 5 – PUMP GROUP CONTROLLER, BLOCKS OF PLC CONTROLLER
+5.1 In. v                 Selection of source of            Source of linear speed:                                        144 Ref.A0        YES
+                          linear speed                      144 Ref.A0 – from analog referencing-unit 1
+                                                            145 Ref.A1 – from analog referencing-unit 2
+                                                            146 Ref.A2 – from analog referencing-unit 3
+5.2 In. F                 Selection of force                Source of force referencing-unit:                              147 100.0%        YES
+                          referencing-unit                  144 Ref.A0 – from analog referencing-unit 1
+                                                            145 Ref.A1 – from analog referencing-unit 2
+                                                            146 Ref.A2 – from analog referencing-unit 3
+                                                            147 100.0%
+5.3 v max                 Max linear speed                  Linear speed which correspond to 100.0% of linear              10.00 m/s         YES
+                                                            speed signal: 0.00 ... 320.00 [m/s]
+5.4 d min                 Minimum diameter of a             Determines minimum diameter of a roller:                       100.0 mm          YES
+                          roller                            0.0 ... 3200.0 [mm]
+5.5 dmax                  Maximum diameter of a             Determines maximum diameter of a roller:                       500.0 mm          YES
+                          roller                             0.0 ... 3200.0 [mm]
+5.6 Mo                    Friction torque                   0.0 ... 100.0%                                                 10.0 %            YES
+PUMPS controller – factory setting concerning set of factory settings number 8
+5.10 Pumps Mode           Activation of Pump Group          Enabling pumps group controller                                000 NO            NO
+                          Control System                    000 NO – controller disabled
+                                                            001 YES – controller enabled
+5.11 Cfg. P1              Pump 1 configuration              000 Mains – operation only from mains                          001               YES
+                                                            001 MFC/Mains – operation from converter or mains              MFC/Mains
+5.12 Cfg. P2              Pump 2 configuration              000 Mains – operation only from mains                          001               YES
+                                                            001 MFC/Mains – operation from converter or mains              MFC/Mains
+5.13 Cfg. P3              Pump 3 configuration              000 Mains – operation only from mains                          001               YES
+                                                            001 MFC/Mains – operation from converter or mains              MFC/Mains
+5.14 Cfg. P4              Pump 4 configuration              000 Mains – operation only from mains                          001               YES
+                                                            001 MFC/Mains – operation from converter or mains              MFC/Mains
+5.15 Cfg. P5              Pump 5 configuration              000 Mains – operation only from mains                          001               YES
+                                                            001 MFC/Mains – operation from converter or mains              MFC/Mains
+5.16 P1 active            Pump 1 activation                 000 Sw.Off –  pump disabled                                    001 In.C1         YES
+                                                            001 In.C1 … 006 In.C6 – pump enabled by one of
+                                                            digital inputs DI1 … DI6
+                                                            007 Sw.On – pump enabled
+5.17 P2 active            Pump 2 activation                 000 Sw.Off –  pump disabled                                    002 In.C2         YES
+                                                            001 In.C1 … 006 In.C6 – pump enabled by one of
+                                                            digital inputs DI1 … DI6
+                                                            007 Sw.On – pump enabled
+
+
+
+
+
+92                                                    Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS

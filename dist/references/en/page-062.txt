@@ -1,0 +1,78 @@
+Section 12. PLC controller
+12.2. Sequencer device
+
+           The sequencer (fig. 12.2) allows programming up to 8 cyclically repeating operation modes of the converter
+with the determined times of duration of separate modes. Inputs marked out by arrows are pointers - they take the data
+from PCH determined by the specified parameter. Input LEN is an ordinary parameter.
+           In case of defining sequencer as functional unit corresponding inputs A, B and C aren't active. To output of
+sequencer (which is appropriate PCH of such unit) number of sequence is passed. Number of sequence can be also
+found in PCH 312.
+
+
+     Parameters           SEQUENCER                   Outputs           a)            TIME 1     TIME 2        TIME3        TIME4      TIME1
+
+      p. 5.43         Time 1        State 1           PCH.304
+      p. 5.44         Time 2        State 2           PCH.305              STATE1
+      p. 5.45         Time 3        State 3           PCH.306              STATE2
+      p. 5.46         Time 4        State 4           PCH.307              STATE3
+      p. 5.47         Time 5        State 5           PCH.308              STATE4
+      p. 5.48         Time 6        State 6           PCH.309              NR SEQ
+      p. 5.49         Time 7        State 7           PCH.310
+      p. 5.50         Time 8        State 8           PCH.311                                                  TIME3
+                                                                        b)            TIME1      TIME2                                       TIME1
+                                                                                                                      TIME4
+      p. 5.42         LEN                                                  STATE1
+                                    NR SEQ            PCH.312              STATE2
+      p. 5.51         NEXT                                                 STATE3
+      p. 5.52         PREV                            PCH.255+x            STATE4
+      p. 5.53         CLR                                                  NR SEQ
+      p. 5.54         SET
+      p. 5.55         SETVAL                                               NEXT
+                                                                           CLR
+      p. 5.40         SW. ON
+                                                                           Fig. 12.3 - Undisturbed (without failures) operation of a sequencer
+                 Fig. 12.2 – PLC - Sequencer                                    for LEN = 4 (a), example of  input use NEXT and CLR (b)
+
+
+
+   Input/
+   output                                                                        Meaning
+   names
+SW. ON          The pointer to PCH switching on the unit of a sequencer. When SW. ON = 0 all outputs of the device are set on value 0.
+                The sequencer is ready  to the beginning of STATE 1 after unblocking this input
+LEN             Quantity of sequences. Range from 2 up to 8 allows to organize quantity of sequences. After execution of last sequence
+                first is automatically carried out ("looping").
+TIME  1         Pointers for PCH which define duration of separate sequences. A range of a time 0.1sec ... 6553.5 sec (interval 0.1 sec).
+... TIME 8      Constant Values (see section 12.5) can be, for example, this PCH.
+NEXT            Force switching into following state (forward). The input operates at down-up transition of a signal.
+PREV            Force switching into previous state (backward). The input operates at down-up transition of a signal..
+CLR             Force transition into STATE 1 when CLR = H (differs from 0).
+SET             Force transition into a STATE determined by input SETVAL when SET = H (the priority is lower, than CLR).
+SETVAL          STATE to which the frequency converter passes after supply of signal SET (a range 0...7,
+                there are only 3 youngest bits).
+STATE 1         Outputs which correspond to current state of a sequencer. At the same time only one of outputs STAT1... STAT8 have
+...STATE 8      value other than zero.
+NR SEQ          An output - value 0...7. Number of a current state minus 1.
+
+
+12.3. Multiplexers MUX1 and MUX2
+
+           These are two units which implement
+the selecting function “1 from 8”. Depending
+on the input state of SELECT (values 0...7,
+only   3   youngest   bits   are   important)   on   the
+output of the multiplexer (PCH number 313 or
+314)   value from an appropriate input (from
+In0 up to In7) is transferred. It is possible to
+switch off the multiplexer (input Sw.on) then
+input value of DVAL input is transferred to the
+output. Parameter PRIOR can adopt a value
+from 1 (the most high priority) up to 48 (see
+the   description   of   a   sequencer   operation   -                                 Fig. 12.4 - Multiplexers MUX1 and MUX2
+section 12.2).
+
+           As in sequencer most parameters (inputs) are pointers. They are presented in fig. 12.4.
+
+
+
+62                                                      Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS

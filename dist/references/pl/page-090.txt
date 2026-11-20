@@ -1,0 +1,93 @@
+Załącznik C – Tabela parametrów przemiennika MFC710
+
+  Parametr / Nazwa                   Funkcja                              Zakres nastaw / jednostka                           Nastawa           Zmiana
+                                                                                                                             fabryczna         podczas
+                                                                                                                                                 pracy
+6.8 We. C.2                Wejście C bloku nr 2            PCH.000 ... PCH.511 – parametr dostępny lub nie w               000 Wylacz         NIE
+                                                           zależności od funkcji bloku (par. 6.5)                          (PCH.000)
+6.9 ... 6.188              analogicznie jw.                analogicznie jw.                                                jw.                jw.
+6.189 Blok nr 48           Funkcja bloku nr 48             0 ... 39 – patrz Załącznik B                                    0                  NIE
+6.190 We. A.48             Wejście A bloku nr 48           PCH.000 ... PCH.511                                             000 Wylacz         NIE
+                                                                                                                           (PCH.000)
+6.191 We. B.48             Wejście B bloku nr 48           PCH.000 ... PCH.511 – parametr dostępny lub nie w               000 Wylacz         NIE
+                                                           zależności od funkcji bloku (par. 6.189)                        (PCH.000)
+6.192 We. C.48             Wejście C bloku nr 48           PCH.000 ... PCH.511 – parametr dostępny lub nie w               000 Wylacz         NIE
+                                                           zależności od funkcji bloku (par. 6.189)                        (PCH.000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dtr-mfc710-op11-pl-e8.1--25-06 : 2025/06/05
+
+
+90                                                     Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS

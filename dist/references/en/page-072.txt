@@ -1,0 +1,80 @@
+Appendix A – Table of Characteristic Points
+
+    PCH               PCH name                                                         Function / value /  note
+     305        SEQUENSER                   PLC controller. Sequencer system. Value H = active mode 2
+                STATE. 2
+  306...311     SEQUENSER                   PLC controller. Sequencer system. Value H = active mode 3...8
+                STATE. 3...8
+     312        SEQUENSER                   PLC controller. Sequencer system. Number of active mode. Value of this  PCH can assume
+                NUMBER SEQUEN.              value 0...7.(0 = STATE 1...7 = STATE 8)
+     313        MULTIPLEXER 1               PLC controller. Output of Multiplexer 1Value = L, when Multiplexer 1 is switched off.
+     314        MULTIPLEXER 2               PLC controller.  Output of Multiplexer 2. 1Value= L, when Multiplexer 2  is switched off.
+     315        Output CSU                  PLC controller. Output Y of Curve Shaping Unit (CSU) X→Y
+  316...319                                 Reserve. Value = always 0
+     320        CONST. 1                    Constant number 1. Can be used as a factor in calculations made with help of  Universal Block.
+                                            It is a copy of parameter 5.120
+     321        CONST. 2                    Constant number 1. Can be used as a factor in calculations made with help of  Universal Block.
+                                            It is a copy of parameter 5.121
+  322...343     CONT. 3...24                Constant number 3...24. Can be used as a factor in calculations made with help of  Universal
+                                            Block. It is a copy of parameter 5.122...5.143
+  344...383                                 Reserve. Value = always 0
+  384...447     PCH RS 1...64               PCH accessible for writing using a connection RS. There is a possibility of an external control of
+                                            a process which takes values from these  PCH
+  448...511     PCH EXT 1...64              PCH intended for service by means of optional extension module (additional inputs/outputs –
+                                            analog, digital, etc.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+72                                                      Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS

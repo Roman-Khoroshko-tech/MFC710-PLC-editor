@@ -1,0 +1,87 @@
+Rozdział 12:  Sterownik PLC
+12.1. Uniwersalne bloki funkcyjne
+
+           Jest 48 bloków funkcyjnych, które nie mają ściśle określonego przeznaczenia. To za ich pomocą można
+zrealizować różnorodne algorytmy sterowania. Każdemu z tych bloków można przypisać jedną z dostępnych 43 funkcji
+logicznych, arytmetycznych lub czasowo-licznikowych, sekwensera, multipleksera, bloku kształtowania krzywej (patrz
+Załącznik B). Każdy z tych bloków posiada 3 wejścia oznaczone A, B i C będące (w zależności od wybranej funkcji)
+wskaźnikami lub parametrami stałymi. Każdy blok ma jedno wyjście OUT
+będące Punktem Charakterystycznym. Wyjście OUT bloku 1 jest PCH o                                   Wejście X.A
+numerze 256, wyjście OUT bloku 2 jest PCH o numerze 257 ... itd. aż do                              Wejście X.B BLOK FUNKCYJNY   Wyjście OUT
+                                                                                                                     nr X                    PCH nr
+wyjścia bloku 48 którego PCH ma numer 303 (rys. 12.1 i Załącznik A).                                               (X = 1...48)              255 + X
+                                                                                                    Wejście X.C
+Każdy z 48 Bloków funkcyjnych ma przypisane na stałe 4 parametry w 6
+grupie parametrów, np. blok nr 1 posiada parametry:
+           par. 6.1 – funkcja bloku nr 1 (patrz Załącznik B)                                         Rys. 12.1 – Uniwersalny blok funkcyjny.
+           par. 6.2 – wejście A bloku nr 1                                                         Wejścia A, B i C są w zależności od funkcji
+           par. 6.3 – wejście B bloku nr 1                                                        bloku wskaźnikami lub zwykłymi parametrami.
+           par. 6.4 – wejście C bloku nr 1
+Odpowiednio parametry 6.5 do 6.8 dotyczą Bloku nr 2, parametry 6.9 do 6.12 dotyczą Bloku nr 3 itd. Aż do Bloku nr 48.
+
+           W trakcie pracy PLC funkcje określone przez Bloki wykonywane są w kolejności od 1 do 48 (zawsze blok o
+niższym numerze jest wykonywany przed blokiem o numerze wyższym).
+
+           Czas cyklu wykonywania programu PLC jest zależny od ilości bloków wykorzystanych w programie PLC,
+określonych par. 5.145. Czas ten wynosi T= par. 5.145 x 0.2 ms. Fabrycznie parametr ustawiony jest na 50, co daje
+czas 10ms.
+UWAGA 1: Bloki o numerze wyższym niż ustawiona wartość w par. 5.145 nie będą wykonywane.
+UWAGA 2: Układ sekwensera, multipleksery i Blok Kształtowania Krzywej należy umieścić w jednym z bloków
+funkcyjnych w celu aktywacji ich działania.
+
+12.2. Układ sekwensera
+           Sekwenser (rys. 12.2) umożliwia zaprogramowanie do 8 cyklicznie powtarzających się stanów pracy układu
+z określonymi czasami trwania poszczególnych stanów.
+           Wejścia oznaczone strzałkami są wskaźnikami – pobierają dane z określonego podanym parametrem PCH.
+Wejście LEN jest zwykłym parametrem. W przypadku zdefiniowania sekwensera jako bloku funkcyjnego odpowiadające
+temu blokowi  wejścia  A, B, C nie  są  aktywne.  Na wyjście  sekwensera  będące  odpowiednim  PCH danego  bloku
+podawany jest numer sekwencji. Numer sekwencji znajduje się również w PCH.312.
+
+
+                  Parametry sterująceSEKWENSER       Wyjścia OUT         a)        CZAS1   CZAS2     CZAS3     CZAS4  CZAS1
+
+                    p. 5.43     CZAS 1CZAS 1STAN 1       PCH.304
+                    p. 5.44     CZAS 2     STAN 2        PCH.305           STAN1
+                    p. 5.45     CZAS 3     STAN 3        PCH.306           STAN2
+                    p. 5.46     CZAS 4     STAN 4        PCH.307           STAN3
+                    p. 5.47     CZAS 5     STAN 5        PCH.308           STAN4
+                    p. 5.48     CZAS 6     STAN 6        PCH.309           NR SEQ
+                    p. 5.49     CZAS 7     STAN 7        PCH.310
+                    p. 5.50     CZAS 8     STAN 8        PCH.311                   CZAS1   CZAS2     CZAS3                 CZAS1
+                                                                         b)                               CZAS4
+
+                    p. 5.42     LEN                                        STAN1
+                                           NR SEQ        PCH.312           STAN2
+                    p. 5.51     NEXT                                       STAN3
+                    p. 5.52     PREV                     PCH.255+x         STAN4
+                    p. 5.53     CLR                                        NR SEQ
+
+                    p. 5.54     SET                                        NEXT
+                    p. 5.55     SETVAL                                     CLR
+
+                    p. 5.40     WŁĄCZ                                     Rys. 12.3 – Niezakłócone działanie sekwensera dla
+                         Rys. 12.2 – PLC - Sekwenser                        LEN = 4 (a), przykład wykorzystania wejść NEXT
+                                                                                                  i CLR (b)
+
+
+ Nazwa wejścia /                                                                Znaczenie
+      wyjścia
+      WŁĄCZ           Wskaźnik do PCH włączającego blok sekwensera. Gdy WŁĄCZ = 0, wówczas wszystkie wyjścia układu przyjmują
+                      wartość 0. Sekwenser jest ustawiany w stan gotowości do rozpoczęcia STANU 1 po odblokowaniu tego wejścia.
+        LEN           Ilość sekwencji. Zakres od 2 do 8. Umożliwia ograniczenie ilości sekwencji. Po ostatniej sekwencji rozpoczynana
+                      jest automatycznie pierwsza (sekwenser się “zapętla”).
+CZAS1 ... CZAS8       Wskaźniki do PCH określających czasy trwania poszczególnych sekwencji. Zakres czasów 0.1s ... 6553.5s
+                      (rozdzielczość 0.1s). Tymi PCH mogą być np. Wielkości Stałe (patrz rozdział 12.5).
+       NEXT           Wymuszenie przełączenia do następnego stanu (do przodu). Wejście czułe na dodatnie zbocze.
+       PREV           Wymuszenie przełączenia do poprzedniego stanu (do tyłu). Wejście czułe na dodatnie zbocze.
+        CLR           Wymuszenie przejścia do STANU 1 gdy CLR = H (różne od zera).
+        SET           Wymuszenie przejścia do STANU określonego przez wejście SETVAL gdy SET = H (priorytet niższy niż CLR).
+     SETVAL           STAN do którego układ przejdzie po sygnale SET (zakres 0...7, ważne tylko 3 najmłodsze bity).
+STAN1 ... STAN8       Wyjście odpowiadające numerowi aktualnie trwającego stanu sekwensera. W danej chwili tylko jedno z wyjść
+                      STAN1 ... STAN8 może przyjmować wartość różną od zera.
+     NR SEQ           Wyjście – wartość 0...7 odpowiada numerowi aktualnie trwającego stanu – 1.
+
+
+
+
+Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS                                                                           57

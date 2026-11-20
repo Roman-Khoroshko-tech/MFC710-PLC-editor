@@ -1,0 +1,63 @@
+Appendix A – Table of Characteristic Points
+
+    PCH                PCH name                                                          Function / value /  note
+     182        fzA_percent                  Value corresponds to PCH.164 (referencing-unit A) converted to relative value (compared to
+                                             rated motor frequency). Value without a sign, resolution 0.1 %.
+     183        fzB_percent                  Value corresponds to PCH.165 (referencing-unit A) converted to relative value (compared to
+                                             rated motor frequency). Value without a sign, resolution 0.1 %.
+     184        fz_percent                   Value corresponds to PCH.166 (referencing-unit) converted to relative value (compared to rated
+                                             motor frequency). Value without a sign, resolution 0.1 %.
+     185        f  Ramp                      The same as PCH.176 but presented in Hz and with sign depending on direction of rotation.
+     186        fz%(1)                       Value corresponds to PCH.166 (referencing-unit) converted considering Fmin and Fmax. Value
+                                             with a sign, resolution 0.1%.
+     187        Fz%(2)                       as above with the difference that value doesn't take into consideration direction of rotation.
+                                             Resolution 0.1%.
+                                             Min value of the frequency referencing-unit – a copy of parameter 2.11. Resolution 0.1 Hz. Value
+     188        Fmin of the ref.-unit        of the referencing-unit (in %) is determined by parameter 2.2 or 2.3, converted to resolution 0.1
+                                             Hz considering Fmin and Fmax. 0.0 % = Fmin, 100.0 % =  Fmax
+                                             Max value of the frequency referencing-unit – copy of parameter 2.11. Resolution 0.1 Hz. Value
+     189        Fmax of the ref.-unit        of the referencing-unit (in %) is determined by parameter 2.2 or 2.3, converted to resolution 0.1
+                                             Hz considering Fmin and Fmax. 0.0 % = Fmin, 100.0 % =  Fmax
+     190        RTCmin                       Value corresponding to current minute of the day. Range 0 … 1439 (only in systems equipped
+                                             with the optional RTC module.
+     191        RTCdoy                       Value corresponding to current day of the year. Range 0 … 365 (only in systems equipped with
+                                             the optional RTC module.
+     192        RTCdom                       Value corresponding to current day of the month. Range 0 … 31 (only in systems equipped with
+                                             the optional RTC module.
+     193        pump                         Value corresponding to currently working pump. Range 0 … 4.
+     194        motor                        Value corresponding to currently working motor. Range 0 … 4.
+     195        motor windings drying        Time remaining until the end of motor windings drying process [in minutes] – equivalent
+                timer                        to par. 0.38
+  196..197                                   Reserve. Value = always 0
+     198        r.n%                         Relative value which corresponds to current speed reference compared to rated speed
+     199        |z n%|                       Relative value which corresponds to current speed reference compared to rated speed. Value
+                                             without a sign (always positive)
+  200..205                                   Reserve. Value = always 0
+     206        f.code                       Value corresponds to the failure code
+     207        w.code                       Value corresponds to the warning code
+  208..217                                   Reserve. Value = always 0
+     218        d wind                       Value corresponds to the current reeling diameter
+  219..221                                   Reserve. Value = always 0
+     222        f InC3                       Value corresponds to the frequency on the Digital Input DI3
+     223        f InC4                       Value corresponds to the frequency on the Digital Input DI4
+     224        f InC5                       Value corresponds to the frequency on the Digital Input DI5
+     225        f InC6                       Value corresponds to the frequency on the Digital Input DI6
+  226..227                                   Reserve. Value = always 0
+     228        outPIn                       Output value of speed regulator
+     229        T ref                        Input value of torque regulator
+  230..237                                   Reserve. Value = always 0
+     238        ENCpos                       Value corresponds to the current encoder position
+     239        ENCref                       Value corresponds to the reference encoder position
+     240        ENCdif                       Value corresponds to the difference between current and reference encoder position
+  241..255                                   Reserve. Value = always 0
+PCH of built-in PLC controller
+     256        UNIT number 1                PLC controller. Output of the universal unit number 1. Depends on unit function. Value can be
+                                             set from 0 to 65535.
+     257        UNIT number 2                PLC controller. Output of the universal unit number 2. Depends on unit function. Value can be
+                                             set from 0 to 65535.
+  258...303     UNIT number 3...48           PLC controller. Output of the universal unit number 3...48. Depends on unit function. Value can
+                                             be set from 0 to 65535.
+     304        SEQUENSER                    PLC controller. Sequencer system. Value H = active mode 1 (only one of the PCH.304...311 can
+                STATE 1                      assume value H at the same time and only if the sequencer is switched on)
+
+Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS                                                                                   71

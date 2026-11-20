@@ -1,0 +1,70 @@
+Rozdział 11:  Zaawansowane programowanie MFC710
+11.3. Modyfikacja sterowania standardowego
+
+          Część  parametrów w przemienniku  MFC710 zdefiniowano jako  wskaźniki (rys. 11.2). Dzięki temu można
+zmienić standardowy sposób sterowania przemiennikiem podłączając poprzez te parametry inne PCH mogą być to np.
+wyjścia bloków sterownika PLC realizującego dowolny algorytm sterowania.
+          Na rys. 11.2 zaprezentowano przykład modyfikacji sterowania standardowego. Parametr 2.2 jest wskaźnikiem,
+który domyślnie ustawiony jest na PCH nr „133 Klaw.Z” czyli Zadajnik Panelu. Znaczy to: Wartość Zadajnika A będzie
+brana z panelu sterującego (rys. 11.2a). Po modyfikacji wartość Zadajnika A może pochodzić np. z wyjścia bloku nr 2
+sterownika PLC (rys. 11.2b).
+          Ze   względów   bezpieczeństwa   parametry   będące   wskaźnikami   i   dotyczące   pracy   przemiennika   posiadają
+ograniczenie   zakresu   wyboru   PCH   zawężające   wybór   do   kilku   przewidzianych   standardowo   wielkości,   np.   dla
+zadajników A i B standardowo wybierać można PCH począwszy od nr 133 do nr 139                                (odpowiednio są to: zadajnik
+panelu, zadajniki wejść analogowych 0, 1, 2, wyjście regulatora PID, motopotencjometr i zadajnik RS). Gwarantuje to,
+że niedoświadczony użytkownik nie przestawi tego parametru na nieokreśloną wartość. Jeżeli jednak projektowana
+aplikacja wymaga innego niż standardowe ustawienia wskaźnika (a jest tak, gdy do sterowania przemiennikiem chcemy
+wykorzystywać   wewnętrzny   sterownik   PLC   lub   sterownik   zespołu   pomp),   wówczas   należy   parametr   4.6   (“Pełne
+wskaźniki”) ustawić na wartość TAK (rys. 11.3).
+Kolejność czynności przy zmianie standardowego sterowania:
+        1.  Odblokować możliwość zmiany parametrów w sposób podany w rozdziale „3.9. Poziomy dostępu PD i
+            blokady parametrów” na str. 25,
+        2.  Parametr 4.6 ustawić na “001 TAK”,
+        3.  Zmienić żądany parametr przemiennika będący wskaźnikiem,
+        4.  Ewentualnie zablokować możliwość zmiany parametrów.
+
+   a)       A          LO       LO               b)       A         FU        LO                       A         LO        LO
+       2 Zadaj. i ster.                              2 Zadaj. i ster.                             4 Wysw., RS, uzyt.
+       2.2 Zadajnik A                                2.2 Zadajnik A                               4.6 Pelne Wsk.
+        133 Klaw.Z                                    257 BL.2                                    001 TAK
+
+
+                                                                                                      Rys. 11.3 – Odblokowanie
+              Rys. 11.2 – Przykład modyfikacji sterowania standardowego                                       wskaźników
+
+
+11.4. Panel Sterowania - definiowanie własnych wielkości wyświetlanych
+          Wśród parametrów grupy 0 przewidziano 4 parametry “tylko do odczytu”, których sposób wyświetlania może
+być definiowany przez użytkownika. Każdy z tych parametrów może zawierać wartość dowolnego PCH, definiowalne są
+też: jednostka wyświetlana i ilość miejsc dziesiętnych. W tabeli 11.2 zestawiono parametry konfigurujące.
+
+Tabela 11.2 – Konfiguracja własnych wielkości wyświetlanych
+ Definiowany par. w grupie 0         Parametry konfigurujące                                        Znaczenie
+                                    par. 4.60                       Wskaźnik do PCH, który zawiera wartość wyświetlaną jako par. 0.54
+           0.54 (Usr1)              par. 4.61                       Wyświetlana jednostka par. 0.54 (patrz tabela 11.3)
+                                    par. 4.62                       Ilość miejsc dziesiętnych par. 0.54 (0...3)
+                                    par. 4.63                       Wskaźnik do PCH, który zawiera wartość wyświetlaną jako par. 0.55
+           0.55 (Usr2)              par. 4.64                       Wyświetlana jednostka par. 0.55 (patrz tabela 11.3)
+                                    par. 4.65                       Ilość miejsc dziesiętnych par. 0.55 (0...3)
+                                    par. 4.66                       Wskaźnik do PCH, który zawiera wartość wyświetlaną jako par. 0.56
+           0.56 (Usr3)              par. 4.67                       Wyświetlana jednostka par. 0.56 (patrz tabela 11.3)
+                                    par. 4.68                       Ilość miejsc dziesiętnych par. 0.56 (0...3)
+                                    par. 4.69                       Wskaźnik do PCH, który zawiera wartość wyświetlaną jako par. 0.57
+           0.57 (Usr4)              par. 4.70                       Wyświetlana jednostka par. 0.57 (patrz tabela 11.3)
+                                    par. 4.71                       Ilość miejsc dziesiętnych par. 0.57 (0...3)
+
+Ponieważ parametry 0.54, 0.55, 0.56 i 0.57 należą do grupy zerowej parametrów, można je wyświetlić na ekranie
+panelu sterującego w trybie podstawowym lub w trybie szybkiego podglądu w sposób opisany w rozdziale „3.4. Zmiana
+wielkości wyświetlanych w widoku podstawowym” na str. 24, dzięki czemu można uzyskać efekt taki jak na rys. 11.4b.
+
+                             a)        A        LO       LO               b)       A         LO      LO
+                                  0 Podglad                                    Usr1                    45   szt
+                                  0.54 Podglad U1                              fwyj                 25.0    Hz
+                                                   45 szt                      Isil                  9.8    A
+
+
+                          Rys. 11.4 – Parametr 0.54 (Usr1) w grupie 0 (a) oraz w Widoku Podstawowym dzięki
+                                            ustawieniu parametru 4.10 na wartość “par. 0.54” (b)
+
+
+Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS                                                                   55

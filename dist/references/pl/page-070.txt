@@ -1,0 +1,81 @@
+Załącznik B – Tabela funkcji Bloków Uniwersalnych
+
+   Nr funkcji           Wyjście (OUT bloku) =                                                               Opis
+       28          Aktualna wartość licznika               Licznik modulo “w górę”, z                               c = Wartość
+                                                                                                                    maksymalna
+                   a = CLK, b = ENABLE,                    wejściem wartości maksymalnej i            OUT
+                                                           wejściem zezwolenia liczenia                             0
+                   c = Wartość maksymalna                  ENABLE                                     ENA
+
+                                                                                                      CLK
+
+       29          F_wyjściowa = F_wejściowa /             Dzielnik częstotliwości                   OUT                                dla C=2
+                   (2*C);  a = F_wejściowa,                z wejściem ENABLE
+                   b = ENABLE, C = dzielnik                                                          ENA
+                                                                                                     CLK
+
+       30          Aktualna wartość licznika               Licznik “w górę” z wejściem
+                                                           zezwolenia ENABLE i zerowaniem                 OUT                                     0
+                   a = CLK, b = ENABLE,                    negacją                                        CLR
+                   c = NOT(CLR)                            Uwaga: po przepełnieniu                        ENA
+                                                           (max = 65535) licznik liczy od zera            CLK
+
+       31          0...7 w zależności od stanu             Dekoder binarny. Zamienia liczbę zakodowaną dwójkowo podaną na wejścia a, b i c
+                   wejść a, b, c                           na liczbę dziesiętną z zakresu <0...7> wg. tabeli
+                                                                       a                         b                          c                       OUT
+                                                                       0                         0                          0                         0
+                                                                       1                         0                          0                         1
+                                                                       0                         1                          0                         2
+                                                                       1                         1                          0                         3
+                                                                       0                         0                          1                         4
+                                                                       1                         0                          1                         5
+                                                                       0                         1                          1                         6
+                                                                       1                         1                          1                         7
+       32          Impuls pozytywny lub                    Uwaga: minimalna długość impulsu wyzwalającego TRIG to 1*T1). Impuls na OUT
+                   negatywny                               jest   opóźniony   o   wartość   max.   1*T1)   w   stosunku   do   zbocza   TRIG.   Ponowne
+                   a = TRIG (dodatnie zbocze),             wyzwolenie generatora możliwe             TRIG            dla C = 0       TRIG            dla C = L11
+                   Timp = B * 5*T + T,                     jest   dopiero   po   zakończeniu
+                   C = polaryzacja                         generowanego impulsu                                    T                               Timp
+                                                                                                     OUT            imp              OUT
+
+       33          Impuls pozytywny lub                    Jak funkcja 32. Różnica: wejścia b i c są wskaźnikami – można zmieniać długość
+                   negatywny                               impulsu i polaryzację w trakcie pracy PLC.
+       34          Sygnał generatora                       Ton = B * T1)                           Ton    Toff    Ton    Toff              Ton    Toff    Ton
+                   a = ENABLE,                             Toff = C * T1)                  OUT
+
+                   B, C - czasy                                                            ENABLE
+
+       35          Impuls opóźniony                        Top1 = B * T1)
+                                                                                                           T   T                            T
+                                                                                                            imp1 imp1                        imp2
+                   a = impuls wejściowy                    Top2 = C * T1)                                              W1                                       W2
+                   B, C – czasy opóźnień                   Wykrywanie kolejnego impulsu             a
+                                                           rozpoczyna się w punktach W1           OUT                                            T
+                                                           i W2.                                                                                  imp2
+                                                                                                           Top1    Top2               Top1                  Top2
+
+       36          Funkcja typu załącz / wyłącz z          Top = C * T1)                                                                T
+                                                                                                                                         op
+                   opóźnionym wyłączaniem                                                    a
+                   a = impuls załączający
+                   (dodatnie zbocze)                                                         b
+                   b = impuls wyłączający
+                   (dodatnie zbocze)                                                         OUT
+                   C = opóźnienie wyłączania
+       37          Funkcja typu załącz / wyłącz z          Top = C * T1)
+                   opóźnionym załączaniem                                                                 Top
+                   a = impuls załączający                  Jeżeli impuls b pojawi się w
+                   (dodatnie zbocze)                       czasie Top, wówczas nie            a
+                   b = impuls wyłączający                  nastąpi załączenie.                b
+                   (dodatnie zbocze)
+                   C = opóźnienie załączania                                                  OUT
+
+       38          Filtr sygnałów analogowych                                                                                            Wejście
+                                                                                                                                         filtru
+                   a, b – wejścia filtru                                                                                                      wyjście
+                                                           Jako wejście filtru brana jest suma (a + b). Tf = C * T1)                          filtru
+                   C – stała filtru                                                                                                                      t
+                                                                                                                                       0             Tf
+
+1) T = par. 5.145 x 0.2 ms
+70                                                        Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS

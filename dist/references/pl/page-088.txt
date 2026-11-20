@@ -1,0 +1,69 @@
+Załącznik C – Tabela parametrów przemiennika MFC710
+
+  Parametr / Nazwa                  Funkcja                             Zakres nastaw / jednostka                          Nastawa          Zmiana
+                                                                                                                          fabryczna        podczas
+                                                                                                                                             pracy
+5.27 Wybor Zad.           Wybór Zadajnika dla            Źródło sygnału ciśnienia:                                      144 Zad.A0        TAK
+                          sterownika pomp.               144 Zad.A0 ... 146 Zad.A2 – z zadajników
+                                                         analogowych (bezpośrednie sterowanie zespołem
+                                                         pomp)
+                                                         158 Za.PID – z wyjścia regulatora PID (najczęstsza
+                                                         konfiguracja)
+                                                         Pozostałych parametrów (147 100.0% ... 157 Uchyb)
+                                                         nie należy ustawiać
+5.28 P limit              Max. ilość jednocześnie        1 ... 5                                                        4                 TAK
+                          pracujących pomp
+5.29 Wlacz P6             Włączanie Pompy 6              000 Wylacz – pompa wyłączona                                   000 Wylacz        TAK
+                                                         001 We.C1 ... 006 We.C6 – pompa włączana jednym
+                                                         z wejść cyfrowych
+                                                         007 Wlacz – pompa włączona
+5.30 Czas blok.           Minimalny czas przerwy         0 … 32000                                                      0 s               TAK
+                          pracy pompy
+5.40 Wlacz Seq            Włącz Sekwenser                Sygnał włączenia bloku sekwensera PLC                          000 wyłączony     TAK
+                                                         PCH.000 ... PCH.511                                            (PCH.000)
+5.41 Seq prior.                                          Parametr serwisowy
+5.42 Seq max              Ilość stanów sekwensera        2 ... 8                                                        8                 TAK
+5.43 Seq czas 1           Czas trwania 1 stanu           PCH.000 ... PCH.511                                            PCH.320           TAK
+                                                                                                                        (Stała 1)
+5.44 Seq czas 2           Czas trwania 2 stanu           PCH.000 ... PCH.511                                            PCH.321           TAK
+                                                                                                                        (Stała 2)
+5.45 Seq czas 3           Czas trwania 3 stanu           PCH.000 ... PCH.511                                            PCH.322           TAK
+                                                                                                                        (Stała 3)
+5.46 Seq czas 4           Czas trwania 4 stanu           PCH.000 ... PCH.511                                            PCH.323           TAK
+                                                                                                                        (Stała 4)
+5.47 Seq czas 5           Czas trwania 5 stanu           PCH.000 ... PCH.511                                            PCH.324           TAK
+                                                                                                                        (Stała 5)
+5.48 Seq czas 6           Czas trwania 6 stanu           PCH.000 ... PCH.511                                            PCH.325           TAK
+                                                                                                                        (Stała 6)
+5.49 Seq czas 7           Czas trwania 7 stanu           PCH.000 ... PCH.511                                            PCH.326           TAK
+                                                                                                                        (Stała 7)
+5.50 Seq czas 8           Czas trwania 8 stanu           PCH.000 ... PCH.511                                            PCH.327           TAK
+                                                                                                                        (Stała 8)
+5.51 Seq Nxt              Źródło sygnału “następny       PCH.000 ... PCH.511                                            PCH.000           TAK
+                          stan”                                                                                         (wyłączony)
+5.52 Seq Prv              Źródło sygnału “poprzedni      PCH.000 ... PCH.511                                            PCH.000           TAK
+                          stan”                                                                                         (wyłączony)
+5.53 Seq Clr              Źródło sygnału “restart        PCH.000 ... PCH.511                                            PCH.000           TAK
+                          sekwensera”                                                                                   (wyłączony)
+5.54 Seq Set              Źródło sygnału                 PCH.000 ... PCH.511                                            PCH.000           TAK
+                          “ustawienie sekwensera”                                                                       (wyłączony)
+5.55 Seq SV               Sekwencja, na którą            PCH.000 ... PCH.511                                            PCH.000           TAK
+                          zostanie ustawiony blok
+                          sekwensera po sygnale                                                                         (wartość 0 =
+                          “Seq Set”                                                                                     sekwencja 0)
+5.60 Wlacz Mux1           Sygnał włączenia bloku         PCH.000 ... PCH.511 (PCH.000 = MUX1 wyłączony)                 PCH.000           TAK
+                          MUX1 PLC
+5.61 Mux1 prior.                                         Parametr serwisowy
+5.62 Mux1 DV              Wartość wyjścia MUX1           -32000 ... 32000                                               0                 TAK
+                          (PCH.313) gdy MUX1
+                          wyłączony (par. 5.60)
+5.63 Mux1 Sel             Źródło sygnału wyboru          PCH.000 ... PCH.511                                            PCH.000           TAK
+                          wejścia MUX1
+5.64 Mux1 1               Wartość wejścia 1 MUX1         PCH.000 ... PCH.511                                            PCH.000 (=0 )     TAK
+5.65 Mux1 2               Wartość wejścia 2 MUX1         PCH.000 ... PCH.511                                            PCH.000 (=0 )     TAK
+5.66 Mux1 3               Wartość wejścia 3 MUX1         PCH.000 ... PCH.511                                            PCH.000 (=0 )     TAK
+5.67 Mux1 4               Wartość wejścia 4 MUX1         PCH.000 ... PCH.511                                            PCH.000 (=0 )     TAK
+5.68 Mux1 5               Wartość wejścia 5 MUX1         PCH.000 ... PCH.511                                            PCH.000 (=0 )     TAK
+5.69 Mux1 6               Wartość wejścia 6 MUX1         PCH.000 ... PCH.511                                            PCH.000 (=0 )     TAK
+
+88                                                   Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS

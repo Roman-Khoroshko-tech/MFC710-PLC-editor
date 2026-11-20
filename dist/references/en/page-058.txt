@@ -1,0 +1,75 @@
+Section 11. Advanced programming of MFC710
+11. Advanced programming of MFC710
+
+          In order to use completely  the frequency converter possibilities and to seize art of its programming it is
+necessary to familiarize with some concepts:
+
+Characteristic point  (abbreviation: PCH) - any from accessible 512 values which characterize current state of the
+converter’s operation, for example, there are characteristic points which are responsible for a state of digital input and
+outputs, values of referencing-unit’s signals and also points which are outputs of control unit PLC, etc. (see section
+11.1)
+Pointer - parameter which decides about what among disposable 512 characteristic points (PCH) will be taken as input
+value in certain place of process (see sections 11.1 and 11.2). Many of the standard parameters determining operation
+of MFC710 are, in essence, pointers that makes possible, for example, to control the drive operation using built - in
+control system PLC.
+
+11.1. Characteristic Points (PCH)
+
+          Each of 512 Characteristic Points is a 16-bit number and can accept a numerical value from range 0 up to
+65536 for unsigned numbers, or from -32768 up to 32767 for numbers with a sign. If this PCH is treated as digital value
+(logic 0 or 1) in this case value “logic 0” corresponds to value PCH = 0, and value “logic 1” corresponds each arbitrary
+value PCH ≠ 0. PCH are numbered from 0 to 511. Some of them are named in order to display their function on LCD or
+LED of control panel. Part of PCH remains  not used and is intended for future use. In table 11.1 general classification of
+PCH is presented. The detailed description of every PCH can be found in Appendix A “Characteristic Points”.
+
+Table 11.1 - General classification of PCH
+PCH  number                                   Value                              PCH number                           Value
+     0...127       Digital variables of process (e.g. Digital inputs)               384...447      PCH, accessible for record by means of
+                                                                                                   RS connection
+   128...255       Analog variables of process (e.g. Analog inputs)                 448...511      PCH, connected with optional module of
+   256...383      PCH, connected with units of internal control PLC                                expansions
+
+
+11.2.  PCH and the pointers – how does it
+work
+
+          Pointers and PCH are strictly connected: Value
+of the pointer (in range 0...511) decides which PCH will
+be picked - value of this PCH is output value (see fig.
+11.1).
+
+
+11.3. Modification of standard control                                     Fig. 11.1 –Principle of selecting PCH with  help of the pointer
+
+          Part of parameters in the frequency converter MFC710 are defined as pointers (fig. 11.2). Due to this it is
+possible to change a standard way of controlling the frequency converter by connecting others PCH by means of these
+parameters. This  РСН  can be, for example, outputs of control system PLC which implements any control algorithm.
+There is an example in fig. 11.2.  The parameter 2.2 is the pointer which is set up in  PCH no.133 that is the Ref.-unit of
+Panel (Keyboard). It means: Value of the Referencing-unit  A  will be taken from the control panel (a). After modification
+value of the Referencing-unit  A  can be taken, for example, from an output of unit number 2 of control systems PLC (b).
+
+               A         LO       LO                         A         FU        LO                       A         LO        LO
+     a)   2 Refer. & control                        b)  2 Refer. & control                           2 Refer. & control
+          2.2 Ref.unit A                                2.2 Ref.unit A                               4.6 Full pointers
+          133 Keyb.ref.                                  257 BL.2                                    001 YES
+
+
+
+                     Fig. 11.2 – Example of standard control modification                              Fig. 11.3 – Unblocking pointers
+
+For security reasons parameters which are pointers and concern operation of the frequency converter have restricted
+range of selecting PCH. They are reduced to the several standard values. For example for referencing-unit A and B it is
+possible to choose standard PCH starting from no. 133 to 139 (respectively: referencing-unit of the panel, referencing-
+unit of analog inputs 0, 1, 2, an output of the PID controller, a motor-potentiometer and RS referencing-unit). It secures,
+that the unexperienced user will not change this parameter to unspecified value. If however the designed application of
+system demands different from standard setting of the pointer   (e.g. in case when for control of the converter it is
+necessary to use built-in PLC system or a control system of pumps group), in this case parameter 4.6 (“Full pointers”)
+should be set up on value YES (fig. 11.3).
+
+Operation sequence at change of standard control:
+    1. Unblock possibility of parameters changing (see a way in section 3.9),
+    2. Set Parameter 4.6 on value "001 YES",
+    3. Change appropriate parameter of the frequency converter (the )
+    4. If it is necessary block possibility of parameters changing.
+
+58                                                 Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS

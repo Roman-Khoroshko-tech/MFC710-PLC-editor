@@ -1,0 +1,79 @@
+Appendix C – Table of MFC710 frequency converter's parameters
+
+Parameter / Name                     Function               Available options / measurement unit                                Factory         Change
+                                                                                                                                setting          during
+                                                                                                                                              operation
+5.120 Const 1              CONSTANT 1                       -32000 ... 32000. Copied to PCH.320                             0                 YES
+5.121 Const 2              CONSTANT 2                       -32000 ... 32000. Copied to PCH.321                             0                 YES
+5.122 ... 5.141            Analogically as above            as above                                                        as above          as above
+5.142 Const 23             CONSTANT 23                      -32000 ... 32000. Copied to PCH.342                             0                 YES
+5.143 Const 24             CONSTANT 24                      -32000 ... 32000. Copied to PCH.343                             0                 YES
+5.144 Enable PLC           Enable build-in PLC              Enabling PLC controller                                         000 NO            NO
+                                                            000 NO – none of PLC block is active
+                                                            001 YES – PLC enabled
+5.145 Blocks numb.         Number of blocks                 1 ... 50 - number of blocks executed by PLC                     50                YES
+GROUP 6 – PLC CONTROLLER – UNIVERSAL BLOCKS
+6.1 Block no. 1            Function of block 1              0 ... 39 – see Appendix B                                       0                 NO
+6.2 Inp. A. 1              Input A of block 1               PCH.000 Sw.Off ... PCH.511                                      PCH.000           NO
+                                                                                                                            Sw.Off
+6.3 Inp. B. 1              Input B of block 1               PCH.000 ... PCH.511. Parameter is accessible or                 PCH.000           NO
+                                                            not, depending on function of block (par. 6.1)                  Sw.Off
+6.4 Inp. C. 1              Input C of block 1               PCH.0 ... PCH.511  Parameter is accessible or not,              PCH.0             NO
+                                                            depending on function of block (par 6.1)
+6.5 Block no. 2            Function of block 2              0 ... 39 – see Appendix B                                       0                 NO
+6.6 Inp. A. 2              Input A of block 2               PCH.000 Sw.Off ... PCH.511                                      PCH.000           NO
+                                                                                                                            Sw.Off
+6.7 Inp. B. 2              Input B of block 2               PCH.000 ... PCH.511. Parameter is accessible or                 PCH.000           NO
+                                                            not, depending on function of block (par. 6.5)                  Sw.Off
+6.8 Inp. C. 2              Input C of block 2               PCH.0 ... PCH.511  Parameter is accessible or not,              PCH.000           NO
+                                                            depending on function of block (par 6.5)                        Sw.Off
+6.9 ... 6.188              as above                         as above                                                        as above          as above
+6.189 Block no. 48         Function of block 48             0 ... 39 – see Appendix B                                       0                 NO
+6.190 Inp. A. 48           Input A of block 48              PCH.000 Sw.Off ... PCH.511                                      PCH.000           NO
+                                                                                                                            Sw.Off
+6.191 Inp. B. 48           Input B of block 48              PCH.000 ... PCH.511. Parameter is accessible or                 PCH.000           NO
+                                                            not, depending on function of block (par. 6.189)                Sw.Off
+6.192 Inp. C. 48           Input C of block 48              PCH.0 ... PCH.511  Parameter is accessible or not,              PCH.000           NO
+                                                            depending on function of block (par 6.189)                      Sw.Off
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dtr-mfc710-op11-en-e8.1--25-06 : 2025/06/05
+
+
+Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS                                                                             95

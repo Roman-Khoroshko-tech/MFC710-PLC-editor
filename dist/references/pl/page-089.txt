@@ -1,0 +1,63 @@
+Załącznik C – Tabela parametrów przemiennika MFC710
+
+  Parametr / Nazwa                  Funkcja                             Zakres nastaw / jednostka                          Nastawa          Zmiana
+                                                                                                                           fabryczna        podczas
+                                                                                                                                             pracy
+5.70 Mux1 7               Wartość wejścia 7 MUX1          PCH.000 ... PCH.511                                           PCH.000 (=0 )      TAK
+5.71 Mux1 8               Wartość wejścia 8 MUX1          PCH.000 ... PCH.511                                           PCH.000 (=0 )      TAK
+5.80 Wlacz Mux2           Sygnał włączenia bloku          PCH.000 ... PCH.511 (PCH.000 =  MUX2 wyłączony)               PCH.000            TAK
+                          MUX2 PLC
+5.81 Mux2 prior.                                          Parametr serwisowy
+5.82 Mux2 DV              Wartość wyjścia MUX2            -32000 ... 32000                                              0                  TAK
+                          (PCH.314) gdy MUX2
+                          wyłączony (par. 5.80)
+5.83 Mux2 Sel             Źródło sygnału wyboru           PCH.000 ... PCH.511                                           PCH.000            TAK
+                          wejścia MUX2
+5.84 Mux2 1               Wartość wejścia 1 MUX2          PCH.000 ... PCH.511                                           PCH.000(=0 )       TAK
+5.85 Mux2 2               Wartość wejścia 2 MUX2          PCH.000 ... PCH.511                                           PCH.000 (=0 )      TAK
+5.86 Mux2 3               Wartość wejścia 3 MUX2          PCH.000 ... PCH.511                                           PCH.000 (=0 )      TAK
+5.87 Mux2 4               Wartość wejścia 4 MUX2          PCH.000 ... PCH.511                                           PCH.000 (=0 )      TAK
+5.88 Mux2 5               Wartość wejścia 5 MUX2          PCH.000 ... PCH.511                                           PCH.000 (=0 )      TAK
+5.89 Mux2 6               Wartość wejścia 6 MUX2          PCH.000 ... PCH.511                                           PCH.000 (=0 )      TAK
+5.90 Mux2 7               Wartość wejścia 7 MUX2          PCH.000 ... PCH.511                                           PCH.000 (=0 )      TAK
+5.91 Mux2 8               Wartość wejścia 8 MUX2          PCH.000 ... PCH.511                                           PCH.000 (=0 )      TAK
+5.100 B.kk prior                                          Parametr serwisowy
+5.101 We. B.KK            Wejście (X) BKK                 PCH.000 ... PCH.511 (PCH.000 = wyłączony)                     PCH.000            TAK
+5.102 B.KK X1             Punkt 1, wartość X              -32000 ... 32000 (patrz opis BKK – strona 58)                 0                  TAK
+5.103 B.KK Y1             Punkt 1, wartość Y              -32000 ... 32000                                              0                  TAK
+5.104 B.KK X2             Punkt 2, wartość X              -32000 ... 32000                                              0                  TAK
+5.105 B.KK Y2             Punkt 2, wartość Y              -32000 ... 32000                                              0                  TAK
+5.106 B.KK X3             Punkt 3, wartość X              -32000 ... 32000                                              0                  TAK
+5.107 B.KK Y3             Punkt 3, wartość Y              -32000 ... 32000                                              0                  TAK
+5.108 B.KK X4             Punkt 4, wartość X              -32000 ... 32000                                              0                  TAK
+5.109 B.KK Y4             Punkt 4, wartość Y              -32000 ... 32000                                              0                  TAK
+5.110 B.KK X5             Punkt 5, wartość X              -32000 ... 32000                                              0                  TAK
+5.111 B.KK Y5             Punkt 5, wartość Y              -32000 ... 32000                                              0                  TAK
+5.120 Stala 1             STAŁA 1                         -32000 ... 32000. Kopiowane do PCH.320                        0                  TAK
+5.121 Stala 2             STAŁA 2                         -32000 ... 32000. Kopiowane do PCH.321                        0                  TAK
+5.122 ... 5.141           analogicznie jw.                analogicznie jw.                                              jw.                jw.
+5.142 Stala 23            STAŁA 23                        -32000 ... 32000. Kopiowane do PCH.342                        0                  TAK
+5.143 Stala 24            STAŁA 24                        -32000 ... 32000. Kopiowane do PCH.343                        0                  TAK
+5.144 Wlacz PLC           Włącz PLC                       Włącznik sterownika PLC                                       000 NIE            NIE
+                                                          000 NIE – żaden z bloków PLC nie działa
+                                                          001 TAK – PLC włączony
+5.145                     Liczba Bloków                   1 ... 50 - liczba bloków realizowanych przez program          50                 TAK
+                                                          PLC
+GRUPA 6 – STEROWNIK PLC – BLOKI UNIWERSALNE
+6.1 Blok nr 1             Funkcja bloku nr 1              0 ... 39 – patrz Załącznik B                                  0                  NIE
+6.2 We. A.1               Wejście A bloku nr 1            PCH.000 ... PCH.511                                           000 Wylacz         NIE
+                                                                                                                        (PCH.000)
+6.3 We. B.1               Wejście B bloku nr 1            PCH.000 ... PCH.511 – parametr dostępny lub nie w             000 Wylacz         NIE
+                                                          zależności od funkcji bloku (par. 6.1)                        (PCH.000)
+6.4 We. C.1               Wejście C bloku nr 1            PCH.000 ... PCH.511 – parametr dostępny lub nie w             000 Wylacz         NIE
+                                                          zależności od funkcji bloku (par. 6.1)                        (PCH.000)
+6.5 Blok nr 2             Funkcja bloku nr 2              0 ... 39 – patrz Załącznik B                                  0                  NIE
+6.6 We. A.2               Wejście A bloku nr 2            PCH.000 ... PCH.511                                           000 Wylacz         NIE
+                                                                                                                        (PCH.000)
+6.7 We. B.2               Wejście B bloku nr 2            PCH.000 ... PCH.511 – parametr dostępny lub nie w             000 Wylacz         NIE
+                                                          zależności od funkcji bloku (par. 6.5)                        (PCH.000)
+
+
+
+
+Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS                                                                           89

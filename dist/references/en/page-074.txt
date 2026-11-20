@@ -1,0 +1,77 @@
+Appendix B - Table of Functions of Universal Blocks
+
+   Function                    Output                                                                Description
+    number             (OUT of  the block)
+
+                   If (a = H) OUT = b.                Value OUT of the unit changes only if there is value H on an a input.
+       17          If (a = L) OUT remains
+                   without changes.
+                   a OR b OR c                        OUT of the unit is logical sum of values of input a, b and c.
+                                                      CAUTION: it is not an operation on bits! (0 means an input = 0, 1 means an input ≠ 0).
+                                                                    a                            b                         c                       OUT
+                                                                                  0                         0                         0                          0
+                                                                                  0                         0                         1                          1
+       18                                                                         0                         1                         0                          1
+                                                                                  0                         1                         1                          1
+                                                                                  1                         0                         0                          1
+                                                                                  1                         0                         1                          1
+                                                                                  1                         1                         0                          1
+                                                                                  1                         1                         1                          1
+                   a AND b AND c                      OUT of the unit is logic product of values of inputs a, b and c
+                                                                    a                            b                         c                       OUT
+                                                                                  0                         0                         0                          0
+                                                                                  0                         0                         1                          0
+       19                                                                         0                         1                         0                          0
+                                                                                  0                         1                         1                          0
+                                                                                  1                         0                         0                          0
+                                                                                  1                         0                         1                          0
+                                                                                  1                         1                         0                          0
+                                                                                  1                         1                         1                          1
+                   a XOR b                            OUT of the unit is a result of operation XOR (exclusive OR) on inputs a and b
+                                                                        a                                     b                                OUT
+       20                                                                                  0                                  0                                  0
+                                                                                           0                                  1                                  1
+                                                                                           1                                  0                                  1
+                                                                                           1                                  1                                  0
+       21          NOT (a OR b OR c)                  OUT of the unit is inversion of logical sum of values a, b and c. (NOR)
+       22          NOT (a AND b AND c)                OUT of the unit is inversion of logical product of values a, b and c. (NAND).
+       23          NOT (a)                            Logic inversion of an input value a.
+                   According to Truth Table                                                                                 R  S  OUT
+                   a = R, b = S                       Trigger RS. Input R  has the priority.              RR                0  0  n-1
+       24                                                                                                        Q          0  1  1
+                                                                                                          S                 1  0  0
+                                                                                                                            1  1  0
+
+                   According to Truth Table                                                            R  D  CLK   OUT
+                   a = D, b = CLK, c = R                                                               0  0  0     n-1
+                                                                           b      CLK                  0  0  1     n-1
+       25                                             Trigger D (Latch).                               0  0        0
+                                                                           a     D      Q     PCH      0  1        1
+                                                                           c     R                     0  1  0     n-1
+                                                                                                       0  1  1     n-1
+                                                                                                       1  X  X     0
+
+                   Current value of the               The counter with reset and direction
+                   counter                            inputs.                                            OUT                                               0
+                   a = CLK, b = CLR, c = DIR          The minimal period for CLK is 20ms. It             CLR
+       26          Caution: the output of this        concerns all counters.
+                   counter can assume                                                                    DIR
+                   positive and negative                                                                 CLK
+                   values in range.
+                   <-32768...32767>.
+                   Current value of the               “One shot” counter type, counting down with an input setting on initial value (SET) and an
+                   counter:                           input of initial value.
+                   a = CLK,
+                   b = SET,
+                   c = initial value
+       27
+
+
+
+
+
+
+
+
+
+74                                                       Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS

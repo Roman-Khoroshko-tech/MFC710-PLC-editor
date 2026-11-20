@@ -1,0 +1,447 @@
+{
+  "schema": "mfc710-plc-studio/1",
+  "title": "Мотопотенціометр 0–100 – DI3 / DI4 – 9 блоків",
+  "cycle": 9,
+  "extended": false,
+  "nodes": [
+    {
+      "id": "bl1",
+      "kind": "block",
+      "slot": 1,
+      "code": 12,
+      "values": {
+        "A": 263,
+        "B": 0,
+        "C": 100
+      },
+      "label": "Верхня межа ≥100",
+      "note": "Лічильник ≥ 100",
+      "x": 500,
+      "y": 150,
+      "links": {
+        "A": {
+          "id": "count_to_bl1",
+          "pch": 263
+        },
+        "B": {
+          "id": "off_to_bl1",
+          "pch": 0
+        }
+      }
+    },
+    {
+      "id": "bl2",
+      "kind": "block",
+      "slot": 2,
+      "code": 23,
+      "values": {
+        "A": 256
+      },
+      "label": "Дозвіл угору <100",
+      "note": "Інверсія перевірки верхньої межі",
+      "x": 820,
+      "y": 150,
+      "links": {
+        "A": {
+          "id": "bl1",
+          "pch": 256
+        }
+      }
+    },
+    {
+      "id": "bl3",
+      "kind": "block",
+      "slot": 3,
+      "code": 12,
+      "values": {
+        "A": 263,
+        "B": 0,
+        "C": 1
+      },
+      "label": "Нижня межа ≥1",
+      "note": "Дозвіл рахувати вниз, поки значення ≥1",
+      "x": 820,
+      "y": 480,
+      "links": {
+        "A": {
+          "id": "count_to_bl3",
+          "pch": 263
+        },
+        "B": {
+          "id": "off_to_bl3",
+          "pch": 0
+        }
+      }
+    },
+    {
+      "id": "bl4",
+      "kind": "block",
+      "slot": 4,
+      "code": 9,
+      "values": {
+        "A": 257,
+        "B": 258,
+        "C": 4
+      },
+      "label": "Вибір межі за DI4",
+      "note": "DI4=0: верхня межа; DI4≠0: нижня межа",
+      "x": 1150,
+      "y": 150,
+      "links": {
+        "C": {
+          "id": "dir_to_bl4",
+          "pch": 4
+        },
+        "A": {
+          "id": "bl2",
+          "pch": 257
+        },
+        "B": {
+          "id": "bl3",
+          "pch": 258
+        }
+      }
+    },
+    {
+      "id": "bl5",
+      "kind": "block",
+      "slot": 5,
+      "code": 20,
+      "values": {
+        "A": 3,
+        "B": 4
+      },
+      "label": "Лише одна кнопка",
+      "note": "XOR DI3 / DI4: заборона при двох натиснутих кнопках",
+      "x": 1150,
+      "y": 600,
+      "links": {
+        "B": {
+          "id": "dir_to_bl5",
+          "pch": 4
+        },
+        "A": {
+          "id": "di3",
+          "pch": 3
+        }
+      }
+    },
+    {
+      "id": "bl6",
+      "kind": "block",
+      "slot": 6,
+      "code": 19,
+      "values": {
+        "A": 259,
+        "B": 260,
+        "C": 7
+      },
+      "label": "Дозвіл генератора",
+      "note": "Дозвіл за межею AND лише одна кнопка AND Sw.On",
+      "x": 1500,
+      "y": 150,
+      "links": {
+        "A": {
+          "id": "bl4",
+          "pch": 259
+        },
+        "B": {
+          "id": "bl5",
+          "pch": 260
+        },
+        "C": {
+          "id": "on_to_bl6",
+          "pch": 7
+        }
+      }
+    },
+    {
+      "id": "bl7",
+      "kind": "block",
+      "slot": 7,
+      "code": 34,
+      "values": {
+        "A": 261,
+        "B": 5,
+        "C": 5
+      },
+      "label": "Генератор тактів",
+      "note": "B=C=5 за заданою таблицею. Див. примітку про тривалість циклу.",
+      "x": 1850,
+      "y": 150,
+      "links": {
+        "A": {
+          "id": "bl6",
+          "pch": 261
+        }
+      }
+    },
+    {
+      "id": "bl8",
+      "kind": "block",
+      "slot": 8,
+      "code": 26,
+      "values": {
+        "A": 262,
+        "B": 0,
+        "C": 4
+      },
+      "label": "Реверсивний лічильник",
+      "note": "A – такт; B – скидання (Sw.Off); C – напрямок (DI4)",
+      "x": 2200,
+      "y": 150,
+      "links": {
+        "B": {
+          "id": "off_to_bl8",
+          "pch": 0
+        },
+        "C": {
+          "id": "dir_to_bl8",
+          "pch": 4
+        },
+        "A": {
+          "id": "bl7",
+          "pch": 262
+        }
+      }
+    },
+    {
+      "id": "bl9",
+      "kind": "block",
+      "slot": 9,
+      "code": 16,
+      "values": {
+        "A": 263,
+        "B": 0,
+        "C": 100
+      },
+      "label": "Масштаб 0…100 → 0…1000",
+      "note": "Вихід PCH264 для подальшого призначення на AO1",
+      "x": 2550,
+      "y": 520,
+      "links": {
+        "A": {
+          "id": "count_to_bl9",
+          "pch": 263
+        }
+      }
+    },
+    {
+      "id": "sw_off",
+      "kind": "source",
+      "pch": 0,
+      "x": 70,
+      "y": 820,
+      "values": {},
+      "label": "Sw.Off · логічний 0",
+      "note": "Логічний нуль. Скидання лічильника вимкнене."
+    },
+    {
+      "id": "sw_on",
+      "kind": "source",
+      "pch": 7,
+      "x": 1460,
+      "y": 820,
+      "values": {},
+      "label": "Sw.On · логічна 1",
+      "note": "Логічна одиниця"
+    },
+    {
+      "id": "di3",
+      "kind": "source",
+      "pch": 3,
+      "x": 820,
+      "y": 820,
+      "values": {},
+      "label": "DI3",
+      "note": "Кнопка рахунку вгору"
+    },
+    {
+      "id": "di4",
+      "kind": "source",
+      "pch": 4,
+      "x": 450,
+      "y": 1000,
+      "values": {},
+      "label": "DI4",
+      "note": "Кнопка рахунку вниз і вибір напрямку"
+    },
+    {
+      "id": "count_bus",
+      "kind": "referenceSend",
+      "x": 2200,
+      "y": 470,
+      "values": {
+        "input": 263
+      },
+      "links": {
+        "input": {
+          "id": "bl8",
+          "pch": 263
+        }
+      }
+    },
+    {
+      "id": "count_to_bl1",
+      "kind": "referenceReceive",
+      "x": 280,
+      "y": 150,
+      "values": {},
+      "referenceId": "count_bus",
+      "pch": 263
+    },
+    {
+      "id": "count_to_bl3",
+      "kind": "referenceReceive",
+      "x": 580,
+      "y": 480,
+      "values": {},
+      "referenceId": "count_bus",
+      "pch": 263
+    },
+    {
+      "id": "count_to_bl9",
+      "kind": "referenceReceive",
+      "x": 2310,
+      "y": 650,
+      "values": {},
+      "referenceId": "count_bus",
+      "pch": 263
+    },
+    {
+      "id": "off_bus",
+      "kind": "referenceSend",
+      "x": 320,
+      "y": 870,
+      "values": {
+        "input": 0
+      },
+      "links": {
+        "input": {
+          "id": "sw_off",
+          "pch": 0
+        }
+      }
+    },
+    {
+      "id": "off_to_bl1",
+      "kind": "referenceReceive",
+      "x": 280,
+      "y": 300,
+      "values": {},
+      "referenceId": "off_bus",
+      "pch": 0
+    },
+    {
+      "id": "off_to_bl3",
+      "kind": "referenceReceive",
+      "x": 580,
+      "y": 630,
+      "values": {},
+      "referenceId": "off_bus",
+      "pch": 0
+    },
+    {
+      "id": "off_to_bl8",
+      "kind": "referenceReceive",
+      "x": 1980,
+      "y": 330,
+      "values": {},
+      "referenceId": "off_bus",
+      "pch": 0
+    },
+    {
+      "id": "direction_bus",
+      "kind": "referenceSend",
+      "x": 720,
+      "y": 1050,
+      "values": {
+        "input": 4
+      },
+      "links": {
+        "input": {
+          "id": "di4",
+          "pch": 4
+        }
+      }
+    },
+    {
+      "id": "dir_to_bl4",
+      "kind": "referenceReceive",
+      "x": 940,
+      "y": 330,
+      "values": {},
+      "referenceId": "direction_bus",
+      "pch": 4
+    },
+    {
+      "id": "dir_to_bl5",
+      "kind": "referenceReceive",
+      "x": 940,
+      "y": 700,
+      "values": {},
+      "referenceId": "direction_bus",
+      "pch": 4
+    },
+    {
+      "id": "dir_to_bl8",
+      "kind": "referenceReceive",
+      "x": 1980,
+      "y": 460,
+      "values": {},
+      "referenceId": "direction_bus",
+      "pch": 4
+    },
+    {
+      "id": "on_bus",
+      "kind": "referenceSend",
+      "x": 1730,
+      "y": 880,
+      "values": {
+        "input": 7
+      },
+      "links": {
+        "input": {
+          "id": "sw_on",
+          "pch": 7
+        }
+      }
+    },
+    {
+      "id": "on_to_bl6",
+      "kind": "referenceReceive",
+      "x": 1280,
+      "y": 420,
+      "values": {},
+      "referenceId": "on_bus",
+      "pch": 7
+    },
+    {
+      "id": "intro",
+      "kind": "comment",
+      "x": 70,
+      "y": 70,
+      "label": "Мотопотенціометр 0…100",
+      "note": "DI3 – угору\nDI4 – вниз\nДві кнопки разом – заборона тактів.\n9 функціональних блоків за наданою таблицею.\nЗворотний зв’язок PCH263 подано через посилання.",
+      "values": {}
+    },
+    {
+      "id": "timing",
+      "kind": "comment",
+      "x": 70,
+      "y": 1120,
+      "label": "Увага: час генератора",
+      "note": "Значення B=C=5 збережено за таблицею.\n5.145=9 → T=9×0,2=1,8 мс.\nTon=Toff=5×1,8=9 мс; період 18 мс. Це НЕ 50/50 мс.\nВ інструкції для лічильника зазначено мінімальний період CLK 20 мс.\nЧас потрібно узгодити перед застосуванням на ПЧ.\nДжерело: MFC710 ред.7.4, стор.64,79–81.",
+      "values": {}
+    },
+    {
+      "id": "ao_note",
+      "kind": "comment",
+      "x": 2550,
+      "y": 900,
+      "label": "Вихід для AO1",
+      "note": "PCH264 – масштабоване значення 0…1000.\nПризначення фізичного AO1 не входить у надану таблицю та не додане до експорту.",
+      "values": {}
+    }
+  ]
+}

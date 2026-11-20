@@ -1,0 +1,60 @@
+Appendix A – Table of Characteristic Points
+
+    PCH                PCH name                                                          Function / value /  note
+     062        READY                        H when the drive is ready to work (there are no failures)
+     063        FAILURE                      H when there was a failure
+     064        NOT FAILURE                  H when  there is no failure
+     065        WARNING                      H when  any warning is switch on
+     066        FAIL. or WARN.               H if failure occurred or warning is active
+     067        Motor windings drying        H = Motor windings drying is going
+     068        Threshold 1                  H = The frequency defined in parameter 2.98 is exceeded
+     069        Threshold 2                  H = The frequency defined in parameter 2.99 is exceeded
+     070        Fref reached                 H when the drive will reach the referenced frequency
+     071        Temperature                  H = The temperature of the drive has exceeded a threshold defined by parameter 2.100
+                threshold
+     072        Warning. Lack of the         H = the prevention of absence of a signal on analog inputs is switch on  in mode  2...10V
+                ''living zero''.             4...20mA
+     073        BLOCKING                     H = the drive is blocked and isn't operating.
+     074        Limitation of current        H = The drive is in a mode of the output current limitation
+     075        Brake                        H = mechanical brake released
+     076        PUMP 1                       Pump system control. H = pump 1 operates
+     077        PUMP 2                       Pump system control. H = pump 2 operates
+     078        PUMP 3                       Pump system control. H = pump 3 operates
+     079        PUMP 4                       Pump system control. H = pump 4 operates
+     080        PUMP 5                       Pump system control. H = pump 5 operates
+     081        Relay 1                      State of relay (digital output) number 1. H =  it is switched on
+     082        Relay 2                      State of relay (digital output) number 2. H =  it is switched on
+     083        Relay 3                      State of relay (digital output) number 3. H =  it is switched on
+     084        Relay 4                      State of relay (digital output) number 4. H =  it is switched on
+  085...089                                  Reserve. Value = always 0
+     090        Timer 50 ms                  Signal of timer with 50ms period and 50% filling
+     091        Timer 1s                     Signal of timer with 1s period and  50% filling.
+     092        Timer 1min                   Signal of timer with 1min period and 50% filling.
+     093        Timer 1 hour (t.1hour)       Signal of timer with 1 hour period and 50% filling
+  094...124                                  Reserve. Value = always 0
+     125        RSTout                       Value corresponding to timeouf of the communication through RS
+     126        NULL                         Value always = L
+     127        NOT NULL                     Value always = H
+  128...132                                  Reserve. Value = always 0
+     133        Keyboard ref.-unit           Value of the local referencing-unit (keyboard). resolution 0.1 Hz. e.g. 500 = 50.0 Hz, range is
+                                             determined by parameters 2.11 and 2.12
+     134        Input A0                     Value corresponding to voltage (current) of analog input 0. resolution 0.1 Hz,  range 0...1000 =
+                                             0.0...100.0 %. It depends on parameter 2.40
+     135        Input A1                     Value corresponding to voltage (current) of analog input 0. resolution 0.1 Hz,  range 0...1000 =
+                                             0.0...100.0 %. It depends on parameter 2.41
+     136        Input A2                     Value corresponding to voltage (current) of analog input 0. resolution 0.1 Hz,  range 0...1000 =
+                                             0.0...100.0 %. It depends on parameter 2.42
+     137        PID Output                   Output of PID controller. resolution 0.1 %, range is determined by parameters 2.66 and 2.67
+     138        Моtopotentiometer            Ref..-unit of the motopotentiometer. resolution 0.1 %, range 0...1000 = 0.0...100.0 %
+     139        RS ref.-unit                 Value of the frequency ref..-unit which is transmitted through RS connection. resolution 0.1 Hz.
+                                             Sign determines direction of the motor rotation
+     140        Additional motopot.          Additional motopotentiometer. Resolution 0.1%, range 0...1000 = 0.0...100.0%
+     141        PID motopot.                 Referencing-unit of motopotentiometer for PID controller.
+     142        RS PID ref.-unit             Value of PID controller ref.-unit which is transmitted through RS connection. resolution 0.1 %.
+     143        PID keyboard                 Value of PID controller referencing-unit from control panel. Interval is 0.1 %.
+     144        Value A0                     Value of analog input 0 multiplied by parameter of scale 2.43 and added offset – parameter 2.46
+     145        Value A1                     Value of analog input 0 multiplied by parameter of scale 2.44 and added offset – parameter 2.47
+
+
+
+Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS                                                                                    69

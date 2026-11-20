@@ -1,0 +1,81 @@
+Rozdział 12:  Sterownik PLC
+12.3. Multipleksery MUX1 i MUX2
+
+           Są   to   dwa   bloki   realizujące   funkcję
+                                                                                MUX1                                     MUX2
+wyboru   1   z   8.   W   zależności   od   stanu   wejścia
+wyboru SELECT (może przyjmować ono wartości                         p. 5.60     WŁĄCZ                         p. 5.80    WŁĄCZ
+0...7,   ważne   są   tylko   3   najmłodsze   bity)   na
+                                                                    p. 5.62     DVAL                          p. 5.82    DVAL
+wyjściu   OUT   multipleksera   będącym   PCH   o                   p. 5.63     SELECT                        p. 5.83    SELECT
+numerze 313 lub 314 przepisywana jest wartość                       p. 5.64     WE0         OUT       PCH.313 p. 5.84    WE0          OUT       PCH.314
+z   odpowiedniego   wejścia   (od   WE0   do   WE7).                p. 5.65     WE1                           p. 5.85    WE1
+                                                                    p. 5.66     WE2                           p. 5.86    WE2
+Multiplekser   można   wyłączyć   (wejście   WŁĄCZ)                 p. 5.67     WE3                           p. 5.87    WE3
+wówczas na wyjście przepisywana jest wartość                        p. 5.68     WE4                           p. 5.88    WE4
+określona parametrem DVAL.                                          p. 5.69     WE5                           p. 5.89    WE5
+                                                                    p. 5.70     WE6                           p. 5.90    WE6
+           Podobnie jak w przypadku sekwensera                      p. 5.71     WE7                           p. 5.91    WE7
+większość parametrów (wejść) jest wskaźnikami.
+Na   rys.   12.4   pokazano   parametry   dotyczące                                  Rys. 12.4 – Multipleksery MUX1 i MUX2
+pracy multiplekserów.
+
+                                                                                                                 Y
+                                                                                                              y4
+12.4. Blok Kształtowania Krzywej                                                                                                      y = f(x)
+           W skład sterownika PLC wchodzi Blok Kształtowania Krzywej
+(BKK),   który   może   służyć   np.   do   kształtowania   charakterystyki
+zadawania prędkości – zmiany charakterystyki z liniowej na określoną                                          y2 y3
+pewną   krzywą   łamaną.   BKK   jest   funkcją   przekształcającą   dowolną
+wielkość wejściową X na wielkość wyjściową Y, której wartość wynika                             x1                                           x5   X
+                                                                                                            x2         x3      x4
+z kształtu krzywej określonej za pomocą 5 punktów (X,Y) (patrz rys.
+12.5).   Punkty   te   zdefiniowane   są   jako   parametry   BKK.   Wielkość                                    y1
+wejściowa X wybierana jest parametrem 5.101. Wielkość wyjściowa Y                                             y5
+znajduje się w PCH.315.
+
+                                                                                             Rys. 12.5 – Przykładowa charakterystyka złożona
+                                                                                               z połączenia 5 punktów (x1,y1),(x2,y2),(x3,y3),
+                                                                                                                 (x4,y4),(x5,y5).
+
+
+ Parametr                                Opis                                Parametr                                 Opis
+   5.101      Wskaźnik do wejścia (źródło wartości wejściowej X)               5.107       Y3 – parametr y punktu 3. Zakres -32000 ... 32000
+   5.102      X1 – parametr x punktu 1. Zakres -32000 ... 32000                5.108       X4 – parametr x punktu 4. Zakres -32000 ... 32000
+   5.103      Y1 – parametr y punktu 1. Zakres -32000 ... 32000                5.109       Y4 – parametr y punktu 4. Zakres -32000 ... 32000
+   5.104      X2 – parametr x punktu 2. Zakres -32000 ... 32000                5.110       X5 – parametr x punktu 5. Zakres -32000 ... 32000
+   5.105      Y2 – parametr y punktu 2. Zakres -32000 ... 32000                5.111       Y5 – parametr y punktu 5. Zakres -32000 ... 32000
+   5.106      X3 – parametr x punktu 3. Zakres -32000 ... 32000
+
+UWAGA: Musi być spełniony warunek X1 ≤ X2 ≤ X3 ≤ X4 ≤ X5.
+
+12.5. Wielkości Stałe
+           W przypadkach, gdy jako wejście dowolnego bloku PLC chcemy ustawić wielkość stałą, możemy wówczas
+użyć jednej z 24 wielkości stałych dostępnych jako PCH o numerach od 320 do 343. Wielkości te możemy ustawiać w
+zakresie wartości od -32000 do 32000 za pomocą parametrów od 5.120 do 5.143.
+
+Przykład, gdy potrzebne jest użycie wielkości stałej:
+Chcemy wykonać operację Y = 5 * X, gdzie X jest wielkością wejściową, Y jest wielkością wyjściową. Korzystając z
+bloków uniwersalnych PLC umiemy wykonać operację (A * B / C) – jest to funkcja nr 2 (patrz Załącznik B). Przyjmujemy
+A = X. B = 5 oraz C = 1. Otrzymujemy w efekcie funkcję Y (wyjście bloku uniwersalnego) = X * 5 / 1
+Jak to zrobić ?
+Parametrem 5.120 ustawiamy wartość Stałej nr 1 na 5,
+    –  Parametrem 5.121 ustawiamy wartość Stałej nr 2 na 1,
+    –  Parametr 6.1 (funkcja bloku 1) ustawiamy na wartość 2 (funkcja 2, czyli A * B / C),
+    –  Parametr 6.2 (wejście A bloku 1) ustawiamy na źródło sygnału X np. Wejście Analogowe 0 = PCH.134),
+    –  Parametr 6.3 (wejście B bloku 1) ustawiamy na Wielkość Stałą nr 1 = PCH.320,
+    –  Parametr 6.4 (wejście C bloku 1) ustawiamy na Wielkość Stałą nr 2 = PCH.321.
+
+Ponieważ wejścia B i C funkcji 2 są wskaźnikami a nie                         PCH.134 (We.A0)           ABLOK 1 funkcja 2
+parametrami,   nie   można   im   po   prostu   przypisać   stałej                                            A * B / C
+wartości.   Należy   spośród   punktów   charakterystycznych                   PCH.320 (Stała 1)        B                            PCH.256 (BL. 1)
+wybrać Stałą nr 1 (PCH.320) dla wejścia B i Stałą nr 2
+(PCH.321) dla wejścia C.                                                       PCH.321 (Stała 2)        C
+Parametr 5.144 (Włączenie PLC) ustawiamy na TAK.
+Od tej chwili wyjście OUT bloku nr 1 będące PCH.256 jest                       Rys. 12.6 – Struktura zrealizowana w powyższym przykładzie.
+wartością  odpowiadającą  wynikowi  operacji  X * 5, co w                                      Wartość PCH.256 = PCH.134 * 5.
+naszym     przypadku     odpowiada     wartości     wejścia
+analogowego 0 pomnożonej przez 5. Czyli zmienia się w granicach od 0 do 5000 (0.0 ... 500.0 %) (rys. 12.6).
+
+
+58                                                    Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS

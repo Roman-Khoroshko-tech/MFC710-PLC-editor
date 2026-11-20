@@ -1,0 +1,84 @@
+Załącznik C – Tabela parametrów przemiennika MFC710
+
+  Parametr / Nazwa                   Funkcja                               Zakres nastaw / jednostka                            Nastawa          Zmiana
+                                                                                                                               fabryczna         podczas
+                                                                                                                                                  pracy
+2.6 Kier. A                Wybór sygnału                   033 We.C.k – sterowanie kierunkiem zdalne (z wejść               034 Klaw.k          TAK
+                           sterowania kierunkiem dla       cyfrowych – patrz par. 2.8)
+                           Sterowania A                    034 Klaw.k – sterowanie kierunkiem lokalne z panelu
+2.7 Kier. B                Wybór sygnału                   jw.                                                              033 We.C.k          TAK
+                           sterowania kierunkiem dla
+                           Sterowania B
+2.8 Start Zdalny           Wariant zdalnego                0 – WeC1 = START/STOP, WeC2 = kierunek                           0                   TAK
+                           sterowania START/STOP           1 – WeC1 = START PRAWO, WeC2 = START LEWO
+                                                           2 – impuls WeC1 = START, impuls WeC2 = STOP
+                                                           3 – jw., dodatkowo WeC3 = kierunek
+                                                           4 – WeC1 = START/STOP
+                                                           Patrz tab. 4.1 w rozdziale 4.2.3
+2.9 Zad. Mom.A             Zadajnik momentu dla            144 Zad.A0 ... 146 Zad.A2 – zadawanie                            147 100.0 %         TAK
+                           Sterowania A                    maksymalnego momentu sygnałem z wejścia
+                                                           analogowego
+                                                           147 100.0% – moment maksymalny 100%
+                                                           148 Zad.KN – moment obliczony przez wewnętrzny
+                                                           kalkulator nawijakowy
+                                                           Patrz też par. 1.43 i par. 1.44
+2.10 Zad. Mom.B            Zadajnik momentu dla            jw.                                                              147 100.0 %         TAK
+                           Sterowania B
+2.11 Zad. min              Częstotliwość zadana            - 550.0 ... 550.0 Hz                    F Zadana                 0.0 Hz              TAK
+                           odpowiadająca                                                     p. 2.12
+                           0 % zadajnika                                                     p. 2.13
+                                                                                                                   Zadajnik
+                                                                                                 0
+                                                                                             -p. 2.13           100%
+
+
+                                                                                             p. 2.11
+
+2.12 Zad. max              Częstotliwość zadana            0.0 ... 550.0 Hz                                                 50.0 Hz             TAK
+                           odpowiadająca                   Uwaga: patrz także par. 1.40
+                           100 % zadajnika
+2.13 f Stop                Minimalna wartość               0.0 ... 550.0 Hz                                                 0.5 Hz              TAK
+                           bezwzględna
+                           częstotliwości zadanej
+2.14 Uzyj f Stop           Zatrzymanie dla                 000 NIE  układ tylko ograniczy częstotliwość do par.             000 NIE             TAK
+                           f < par. 2.13                   2.13
+                                                           001 TAK – układ zatrzyma się, gdy f zadana jest
+                                                           niższa od minimum określonym par. 2.13
+2.15 Start LoRST           Kasowanie Sygnału               000 NIE – układ pamięta wciśnięcie przycisku START               001 TAK             TAK
+                           Startu Lokalnego                i ruszy natychmiast po zmianie sterowania na lokalne
+                                                           001 TAK – po przełączeniu sterowania na lokalne (z
+                                                           panelu) układ pozostanie zatrzymany (lub zatrzyma
+                                                           się) niezależnie od tego czy wcześniej wciskany był
+                                                           przycisk START
+2.16 Opoz.zad.             Opóźnienie włączenia            0.0 ... 12.0 s                                                   0.0 s               TAK
+                           zadajnika
+2.18                       Blokada autostartu              Blokada lub zezwolenie na autostart falownika po:                000 Nie             TAK
+Blok. autostart 1)         falownika                       - zaniku zasilania lub
+                                                           - wystąpieniu i zaniku awarii/ostrzeżenia.
+                                                           Warunkiem koniecznym autostartu jest aktywny
+                                                           sygnał startu. Wyzwalanie na zbocze narastające.
+
+                                                           000 Nie – brak blokady autostartu
+                                                           001 Tak – blokada autostartu aktywna
+2.20 Motopot.gor           Źródło sygnału „zwiększ”        000 Wylacz – brak                                                000 Wylacz          TAK
+                           dla zadajnika                   001 We.C1 … 006 We.C6 – zwiększ zadajnik, gdy na
+                           motopotencjometrem              wejście cyfrowe 1...6 jest podane napięcie
+2.21 Motopot.dol           Źródło sygnału „zmniejsz”       000 Wylacz – brak                                                000 Wylacz          TAK
+                           dla zadajnika                   001 We.C1 … 006 We.C6 – zmniejsz zadajnik, gdy na
+                           motopotencjometrem              wejście cyfrowe 1...6 jest podane napięcie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1)  Parametr dostępny od wersji oprogramowania 12.63
+78                                                      Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS

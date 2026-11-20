@@ -1,0 +1,58 @@
+Załącznik A – Tabela Punktów Charakterystycznych
+
+  Nr PCH             Nazwa PCH                                                     Funkcja / wartość / uwagi
+     064       NIE AWARIA                  H gdy nie ma awarii
+     065       OSTRZEŻENIE                 H gdy aktywne jest dowolne ostrzeżenie
+     066       AW. lub OST.                H w przypadku gdy wystąpiła awaria lub aktywne jest ostrzeżenie
+     067       Stan suszenia               H = Trwa proces suszenia silnika
+     068       Próg 1                      H = Przekroczono częstotliwość określoną parametrem 2.98
+     069       Próg 2                      H = Przekroczono częstotliwość określoną parametrem 2.99
+     070       Jest F zadana               H gdy układ osiągnął częstotliwość zadaną
+     071       Próg temperatury            H = temperatura układu przekroczyła próg określony parametrem 2.100
+     072       Ostrzeżenie brak            H = aktywne ostrzeżenie od braku sygnału na wejściach analogowych w trybie 2...10V 4...20mA
+               żyjącego zera
+     073       BLOKADA                     H = układ zablokowany, nie pracuje.
+     074       Ogranicz. prądu             H = układ znajduje się w stanie ograniczania prądu wyjściowego
+     075       Hamulec                     H = hamulec mechaniczny zwolniony
+     076       POMPA 1                     Sterownik Pomp. H = pracuje pompa 1
+     077       POMPA 2                     Sterownik Pomp. H = pracuje pompa 2
+     078       POMPA 3                     Sterownik Pomp. H = pracuje pompa 3
+     079       POMPA 4                     Sterownik Pomp. H = pracuje pompa 4
+     080       POMPA 5                     Sterownik Pomp. H = pracuje pompa 5
+     081       Przekaźnik 1                Stan przekaźnika (wyjścia cyfrowego) nr 1. H = załączony
+     082       Przekaźnik 2                Stan przekaźnika (wyjścia cyfrowego) nr 2. H = załączony
+     083       Przekaźnik 3                Stan przekaźnika (wyjścia cyfrowego) nr 3. H = załączony
+     084       Przekaźnik 4                Stan przekaźnika (wyjścia cyfrowego) nr 4. H = załączony
+ 085 … 089                                 Rezerwa. Wartość = zawsze 0
+     090       Zegar 50ms                  Sygnał zegara o okresie 50ms i wypełnieniu 50%
+     091       Zegar 1s                    Sygnał zegara o okresie 1 sekundy  i wypełnieniu 50%
+     092       Zegar 1min                  Sygnał zegara o okresie 1 minuty i wypełnieniu 50%
+     093       Zegar 1h                    Sygnał zegara o okresie 1 godziny i wypełnieniu 50%
+ 094 …124                                  Rezerwa. Wartość = zawsze 0
+     125       RSTout                      Wartość odpowiadająca timeout komunikacji RS
+     126       ZERO                        Wartość zawsze równa 0
+     127       NIE ZERO                    Wartość zawsze równa H
+  128...132                                Rezerwa. Wartość = zawsze 0
+     133       Zadajnik Klawiatury         Wartość zadajnika lokalnego. Rozdz. 0.1Hz np. 500 = 50.0 Hz, zakres określony par. 2.11 2.12
+     134       Wejście A0                  Wartość odpowiadająca napięciu (prądowi) wejścia analogowego 0. Rozdzielczość 0.1 %,
+                                           zakres 0...1000 = 0.0...100.0 %. Zależy od parametru 2.40
+     135       Wejście A1                  Wartość odpowiadająca napięciu (prądowi) wejścia analogowego 1. Rozdzielczość 0.1 %,
+                                           zakres 0...1000 = 0.0...100.0 %. Zależy od parametru 2.41
+     136       Wejście A2                  Wartość odpowiadająca napięciu (prądowi) wejścia analogowego 2. Rozdzielczość 0.1 %,
+                                           zakres 0...1000 = 0.0...100.0 %. Zależy od parametru 2.42
+     137       Wyjście PID                 Wyjście regulatora PID. Rozdzielczość 0.1 %, zakres określony parametrami 2.66 i 2.67
+     138       Motopotencjometr            Zadajnik motopotencjometru. Rozdzielczość 0.1 %, zakres 0...1000 = 0.0...100.0 %
+     139       Zadajnik RS                 Wartość zadajnika częstotliwości przesyłanego łączem RS. Rozdzielczość 0.1 Hz. Znak
+                                           decyduje o kierunku pracy układu
+     140       Dodatk. motopot             Dodatkowy motopotencjometr. Rozdzielczość 0.1 %, zakres 0...1000 = 0.0...100.0 %
+     141       Motopot. PID                Zadajnik motopotencjometru dla regulatora PID
+     142       Zadajnik PID RS             Wartość zadajnika regulatora PID przesyłanego łączem RS. Rozdzielczość 0.1 %.
+     143       Klawiatura PID              Wartość zadajnika regulatora PID z panelu sterującego. Rozdzielczość 0.1 %.
+     144       Zad.A0                      Wartość wejścia analogowego 0 pomnożona przez parametr skali 2.43 i plus offset – par. 2.46
+     145       Zad.A1                      Wartość wejścia analogowego 1 pomnożona przez parametr skali 2.44 i plus offset – par. 2.47
+     146       Zad.A2                      Wartość wejścia analogowego 2 pomnożona przez parametr skali 2.45 i plus offset – par. 2.48
+     147       STO PROCENT                 Zawsze wartość 1000 odpowiadająca 100.0 % zadajników
+     148       Wyjście KN                  Wyjście układu kalkulatora nawijakowego, służy do zadawania momentu.
+                                           Rozdzielczość 0.1 %, zakres 0.0...100.0 %
+
+64                                                     Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS

@@ -1,0 +1,80 @@
+Appendix C – Table of MFC710 frequency converter's parameters
+
+Parameter / Name                      Function                Available options / measurement unit                                 Factory          Change
+                                                                                                                                   setting          during
+                                                                                                                                                  operation
+Parameters 1.100 – 1.113 are active only in a regenerative frequency inverter MFC710AcR
+1.100 AcR mode             Active Rectifier mode              0 - AcR off                                                      3                  NO
+                                                              1 - AcR on when „ready” mode (a)
+                                                              2 - AcR on when „run” mode (b)
+                                                              3 - AcR on when „run” mode (b),
+                                                                   motor starts after the AcR started (c)
+
+
+                                                                                         Power supply                   t
+
+                                                                                         Ready                          t
+                                                                                         START                          t
+
+                                                                a) - par. 1.100 = 1
+                                                                                         AcR ON                         t
+
+                                                                b) - par. 1.100 = 2; 3
+
+                                                                                         AcR ON                         t
+
+                                                                c)          par. 1.100 = 1; 2     Fout
+
+
+                                                                                              par. 1.100 = 3            t
+
+1.101 Udc ref.             Udc reference voltage              500 … 744 V   for MFC710 3 x 400V                                620 V              YES
+                                                              500 … 894 V   for MFC710 3 x 500V                                750 V
+                                                              500 … 1418 V for MFC710 3 x 690V                                 1025 V
+1.102 Iq ref.              Iq reference current               -30.0 … 30.0 %     (100.0% = In)                                 0.0 %              YES
+1.103 AcR limit            Active rectifier current limit     1.0 ...150.0 %      (100.0%=In)                                  150.0 %            YES
+1.104 L mains              Inductance of the chokes           0.000 … 32.767 mH                                                depends on         YES
+                           used in the LCL filter from        The values read from the rating plate of the chokes              the nominal
+                           the power grid side                from the power grid side should be added up.                     power of the
+                                                                                                                               freq. conv.
+1.105 kp Udc               kp and ki coefficients of the      0 … 32767                                                        185                YES
+1.106 ki Udc               PI Udc  voltage  controller        0 … 32767                                                        105                YES
+
+1.107 kp Id                kp and ki coefficients of the      0 … 32767                                                        100                YES
+1.108 ki Id                PI id current controller           0 … 32767                                                        115                YES
+
+1.109 kp Iq                kp and ki coefficients of the      0 … 32767                                                        100                YES
+1.110 ki Iq                PI iq current controller           0 … 32767                                                        115                YES
+
+1.112 df carr.AcR          Service parameter                  0 … 10 Hz                                                        0 Hz               YES
+1.113 SYNC mode            Service parameter                  0, 1, 2, 3                                                       0                  YES
+GROUP 2 – REFERENCING-UNITS AND CONTROL
+2.1 B Ctrl.unit            Switching on variant A or B        000 Sw.Off – Control A                                           000 Sw.Off         YES
+                           of control                         001 In.C1 … 006 In.C6 – A/B choice by means of
+                                                              digital input DI1...DI6                                          (Control A
+                                                              007 Sw.On – Control B                                            enabled)
+2.2 Ref.unit  A            Choice of a referencing-           133 Keyb. ref. – frequency ref.-unit from the control            133 Keyb. ref      YES
+                           unit for Control A                 panel
+                                                              134 In.A0 … 136 In.A2 – referencing frequency by
+                                                              signal from analog input AI0...AI2
+                                                              137 OutPID – referencing frequency by PID
+                                                              controller
+                                                              138 MotPot – referencing by increase/decrease
+                                                              signals from motopotentiometer
+                                                              139 RS ref. – referencing through RS232 or RS485
+                                                              connection (Modbus)
+2.3 Ref.unit B             Choice of a referencing-           as above                                                         In.A0              YES
+                           unit for Control B
+2.4 Start A                Choice of a source of              030 Dig. Inp. St – remote START/STOP control                     031 Keyboard       YES
+                           START / STOP signal for            (from device's Digital Inputs – see par. 2.8)                    St.
+                           Control A                          031 Keyboard St. – local START/STOP control from
+                                                              the control panel
+                                                              032 RS St. – START/STOP control through RS232
+                                                              or RS485 (Modbus)
+2.5 Start B                Choice of a source of              as above                                                         030 Dig.In         YES
+                           START / STOP signal for
+                           Control B
+
+
+
+82                                                      Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS

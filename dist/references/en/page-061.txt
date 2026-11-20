@@ -1,0 +1,83 @@
+Section 12. PLC controller
+12. PLC controller
+
+           In standard variant the frequency converter is equipped with built-in PLC controller which can serve for the
+control of converter's work or control of any process. PLC controller is switched on when the parameter 5.144 is set up
+on value YES.
+           The basic characteristics of control system РLС:
+           • 48 universal 3-input units from which each can implement one of 43 logical, arithmetical or time-counting
+             functions,
+           • the sequencer unit with a possibility to program a sequence which will consist of maximum 8 states - each
+             with individually programmed time of operation and a possibility changing state by external signal,
+           • two 8-input multiplexers which connect to an output one of eight input values depending on control signal,
+           • 5-point formation unit of curve X→Y which can be used, for example, as the referencing-unit with the certain
+             characteristic,
+           • 24 programmed constants accessible also as PCH (can be used as factors in calculations),
+           • time of PLC program execution is less or equal to 10 ms.
+
+           Outputs of each PLC units are Characteristic Points, inputs are pointers and that’s why it is possible to connect
+units among themselves and with parameters of the frequency converter, forming thus structure of a control system.
+
+12.1. Universal functional blocks
+
+           There are 48 functional units which don't have precisely limited purpose. Therefore with their help it is possible
+to implement many control algorithms. Each of these units can perform one of 43 possible logical, arithmetical, time-
+counting sequencer, multiplexer,
+curve   shaping   functions   (see               Input Ch.A
+appendix B). Each of these units
+has   3  inputs   which  have   been                                      FUNCTIONAL                    Output
+marked   A,   B   and   C   and   are            Input Ch.B                      UNIT                                         PCH #
+(depending     on     the    selected                                            # Ch                                       319 + Ch
+function)   pointers   or   constant             Input Ch.C                 (Ch = 1...48)
+parameters. Each unit has one
+output which is a Characteristic
+Point. OUT of unit 1 has number
+256,   OUT   unit   2   has   number       Fig. 12.1 -  Universal functional unit. Inputs A, B and C depending on function of the unit are
+257. and so on, up to OUT of                                                 pointers or usual parameters.
+unit 48 which has number 303 (fig. 12.1 and appendix A).
+Each of 48 Functional units has constantly assigned 4 parameters in 6 group of parameters, for example the Unit 1 has
+parameters:
+            Par. 6.1 - function of the unit 1 (see Appendix B)
+            Par. 6.2 - input A of the unit 1
+            Par. 6.3 - input B of the unit 1
+            Par. 6.4 - input C of the unit 1
+Accordingly, parameters 6.5 up to 6.8 concern the Unit 2, parameters from 6.9 to 6.12 concern the Unit 3 and so on up
+to the Unit 48.
+
+           During PLC operation functions determined by Units are carried out in sequence from 1 up to 48 (always the
+unit with the lowest number is carried out before the unit with the highest number).
+
+           The full operation time of PLC sequence depends on amount of blocks used in program, determined by par.
+5.145. This time is equal to T = par. 5.145 x 0.2ms. By default, parameter is set to 50 what limits time of execution to
+10  ms.
+
+NOTE 1. Units with numbers higher than par. 5.145 are not executed!
+NOTE 2. The sequencer device, Multiplexers and Curve shaping unit should be placed in one of the function
+blocks to activate them.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS                                                                     61

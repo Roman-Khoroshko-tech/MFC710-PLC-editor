@@ -1,0 +1,74 @@
+Rozdział 3: Panel sterujący OP-11
+Uwaga 1: Poziom dostępu PD 2 jest przeznaczony do wgrywania                                              A         LO       LO
+predefiniowanych nastaw fabrycznych – punkt „3.7. Wgrywanie nastaw                                  4 Wysw., RS, uzyt.
+fabrycznych”.                                                                                       4.2 Poziom/KOD
+Uwaga 2: Po wyłączeniu zasilania bądź resecie przemiennika (spowodowanego
+np. wgraniem nastaw fabrycznych) poziom dostępu PD automatycznie powróci                                 PD = 2
+do poziomu PD 1.
+
+3.9.2. Blokady parametrów                                                                          Rys. 3.6 - Widok ekranu gdy  poziom
+Istnieją dwa sposoby na zablokowanie edycji parametrów: blokada tymczasowa                                    dostępu PD = 2
+i trwała.
+
+Blokada tymczasowa – bez kodu dostępu
+          Blokada tymczasowa polega na zmianie wartości par. „4.1 Blokada par.” na „001 TAK” bez zmiany poziomu
+dostępu PD na 0. Spowoduje to tymczasowe zablokowanie (symbol kłódki) wszystkich parametrów (poza „4.1 Blokada
+par.” i „4.2 Poziom/KOD”) i nie będzie możliwa zmiana ich wartości. Ponowna zmiana wartości par. „4.1 Blokada par.”
+na „000 NIE” odblokuje możliwość edycji parametrów.  Po wyłączeniu zasilania lub resecie przemiennika parametry
+zostaną automatycznie odblokowane zgodnie z poziomem dostępu PD 1.
+          Należy zauważyć, że blokada tymczasowa jest możliwa jedynie w sytuacji, gdy kod do poziomu dostępu PD 1
+jest ustawiony na 0. W przeciwnym razie zmiana parametru „4.1 Blokada par.” na „001 TAK” spowoduje automatyczną
+zmianę poziomu dostępu PD na 0 – blokada trwała.
+
+Blokada trwała – z kodem dostępu
+          Blokada trwała polega na zmianie domyślnego kodu (zero) przypisanego do poziomu dostępu PD 1 na wartość
+różną od zera (patrz punkt „3.9.3. Zmiana kodów dostępu”), a następnie na zmianie wartości par. „4.1 Blokada par.” na
+wartość  „001 TAK”. Spowoduje  to aktywację  poziomu  dostępu  PD 0 i trwałe  zablokowanie  możliwość  modyfikacji
+wszystkich parametrów (symbol kłódki) poza „4.1 Blokada par.” i „4.2 Poziom/KOD”.
+          Parametry pozostaną zablokowane także po wyłączeniu zasilania lub resecie przemiennika.
+          W celu odblokowania możliwości zmiany pozostałych parametrów należy zmienić poziom dostępu na PD 1 lub
+PD 2 poprzez wpisanie w parametrze „4.2 Poziom/KOD” odpowiadającego mu kodu. Powrotu do blokady tymczasowej
+dokonuje się poprzez zmianę kod do poziomu dostępu PD 1 na 0.
+
+Przykład zastosowania blokady dostępu
+          Po włączeniu zasilania przemiennik domyślnie ma ustawiony poziom dostępu PD 1 (par. „4.2 Poziom/KOD = 1”
+a   par.   „4.1   Blokada   par.”   ustawiony   jest   na   wartość   „000 NIE”).   Umożliwia   to   zmianę   wszystkich   parametrów
+przemiennika poza przywróceniem nastaw fabrycznych (par. „4.4 Para. fabr.”) i zmianą blokady fizycznego zapisu
+parametrów do pamięci EEPROM przemiennika (par. „4.5 Wlacz EEPROM”).
+
+      Blokada                W celu aktywacji tymczasowej blokady parametrów, par. „4.1 Blokada par.” należy ustawić na
+      tymczasowa             „001 TAK”.
+      Blokada trwała         W celu aktywacji trwałej blokady parametrów uprzednio należy zmienić kod przypisany do
+                             poziomu PD 1 na wartość różną od zera (np. 5) a następnie par. „4.1 Blokada par.” ustawić na
+                             „001 TAK”. Spowoduje to zmianę aktualnego poziomu dostępu na 0, co będzie widoczne
+                             w par. „4.2 Poziom/KOD”.
+
+Po włączeniu blokady przy wszystkich zablokowanych parametrach pojawi się symbol kłódki.
+
+Wyłączenie trwałej blokady dostępu
+          W celu wyłączenia trwałej blokady dostępu należy:
+               •    uaktywnić poziom dostępu PD1 → w par. „4.2 Poziom/KOD” wpisać kod, który został przypisany do
+                    PD1 podczas aktywacji blokady stałej,
+               •    zmienić kod PD1 na „0” → w par. „4.3 Nowy kod” wpisać wartość „0” (patrz punkt „3.9.3. Zmiana
+                    kodów dostępu”).
+
+3.9.3. Zmiana kodów dostępu
+          Zmiana kodów dostępu do poziomu PD 1 i poziomu PD 2 odbywa się za pomocą parametru „4.3 Nowy KOD”.
+Zmiana będzie dotyczyć aktualnego poziomu dostępu PD.
+W celu zmiany kodu należy:
+     •    sprawdzić czy poziom dostępu PD wyświetlany w par. „4.2 Poziom/KOD” jest tym poziomem dla którego
+          chcemy przypisać nowy kod,
+     •    w par. „4.3 Nowy KOD” wpisać nowy kod,
+          Nowy kod zaleca się zapisać, aby zapobiec jego utracie,
+     •    powtórzyć wpisanie nowego kodu w par. „4.3 Nowy KOD”.
+Od tej chwili przejście do poziomu dostępu dla którego kod został zmieniony będzie się odbywało po wpisaniu tego
+nowego kodu w par. „4.2 Poziom/KOD”. Poziomu dostępu 0 nie posiada kodu.
+
+
+
+
+
+
+
+
+26                                               Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS

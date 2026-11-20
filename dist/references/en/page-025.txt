@@ -1,0 +1,71 @@
+3.8. Changing the rotational speed of the motor (output frequency) from the control panel
+The motor speed can be easily changed from the control panel, provided that
+at least one of the following conditions is met:                                                               A         LO        LO
+     •     the source of the motor speed is the control panel                                              Keypad reference
+           (par. 2.2 = „133 Keyb. ref.”),
+     •     The PID controller reference-unit was set to be controlled from the
+           control panel (par. 2.60 = „143 Keyb.P”),                                                       [ 0020.0]Hz
+     •     one of the four user’s referencing-units is active (see chapter 11.5).
+Then, in the "Basic view", using the up / down „     ”  „   ” arrow keys you can
+change the motor speed - fig. 3.5. You can return to the "basic view" by                                    Fig. 3.5 - Change of frequency
+pressing the ESC key.                                                                                        output from the control panel
+
+Note: Only one (or none) of the above-mentioned referencing-unit can be
+active at a time.
+
+3.9. PD access levels and parameters locks
+           If there is a padlock symbol on the left side of the parameter, it means that it is locked and it is impossible to
+change its value. Possible causes of parameter editing lock:
+        •  some parameters can be changed only when the converter is not running (the motor is stopped),
+        •  the active access level does not allow the parameter to be modified.
+
+Table 3.3 - Parameters responsible for locks and access levels
+  Parameter                                                                 Description
+      4.1        Switching On the parameter change lock. When set to "001 YES", it will not be possible to change parameters (except
+                 for "4.1 Par. block." and "4.2 Level/CODE"). The lock has two variants, depending on whether the code to access level
+                 1 (PD 1) is set to 0 (default value) or to a different number - see section 3.9.2 "Parameter locks".
+      4.2        Active PD access level (reading), entering the access code (writing).
+      4.3        Changing the access code for the active level (see par. 4.2).
+      4.4        Load a set of factory settings of the drive
+      4.5        Lock of physical parameter writing to EEPROM memory.
+                 Service parameter - do not use.
+                 Setting this parameter to "000 NO" causes that all changes made to parameter settings are saved only in the
+                 temporary memory and will be lost after power off or reset of the converter.
+
+3.9.1. PD access levels
+           In order to protect the converter settings against unauthorized changing, 3 levels of PD access to parameters
+are avaible:
+
+     •     PD 0 (level 0 - lowest) – parameters cannot be changed. Parameter "4.1 Par. block." always has the value
+           "001 YES" and it cannot be changed.
+     •     PD 1 (level 1 - default) – it is possible to edit parameters (except for "4.4 Fact. set." and "4.5 En. EEPROM").
+     •     PD 2 (level 2 - highest) – designed to load factory parameters – see chapter 3.7 “Restore factory settings”.
+
+           Each PD access level has its own number (code) assigned, which is a number from 0 to 9999. The change of
+the PD access level is done indirectly by entering par. "4.2 Level/CODE" of the corresponding code number as shown in
+table 3.4.
+           If a code not assigned to any of the PD access levels is entered, then after confirming the entered value with
+the Enter key, the PD access level will not be changed.
+
+                      Table 3.4 - Default code values assigned to PD access levels
+                            PD access level                              Code (default)
+                                     1                                          0
+                                     2                                          1
+
+A user can assign a different code to a given access level - see section 3.9.3 “Change of access codes”.
+
+
+Example of changing the access level to PD 2                                                                     A          LO        LO
+                                                                                                            4 Disp, RS, user
+By default, the access level PD 2 is assigned a code with the value 1. This                                 4.2 Level
+value should be entered in par. "4.2 Level/CODE" and confirmed with the Enter
+key   „   ”. The screen changes to fig. 3.6.                                                                    PD = 2
+
+Note 1: The PD 2 access level is intended for loading predefined factory
+settings - section 3.7 “Restore factory settings”.                                                          Fig. 3.6 - Screen view when access
+                                                                                                                        level PD = 2
+Note 2: After power off or reset of the converter (caused by e.g. loading of
+factory settings) the PD access level will automatically return to the PD 1 level.
+
+
+Frequency converter MFC710 type with OP-11 control panel - TWERD ENERGO-PLUS                                                                       25

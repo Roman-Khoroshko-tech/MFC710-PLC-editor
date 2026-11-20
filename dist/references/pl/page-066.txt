@@ -1,0 +1,63 @@
+Załącznik A – Tabela Punktów Charakterystycznych
+
+  Nr PCH             Nazwa PCH                                                     Funkcja / wartość / uwagi
+     184       fz_procent                  Wartość odpowiada PCH.166 (Zadajnik) przeliczonej do wielkości względnej odniesionej do
+                                           częstotliwości znamionowej silnika. Wartość bez znaku, rozdzielczość 0.1 %
+     185       F po Ramp                   Jak PCH.176 tylko w [Hz] i ze znakiem zależnym od kierunku obrotów
+     186       fz% (1)                     Wartość odpowiada PCH.166 (Zadajnik) przeliczonej względem fmin i fmax. Wartość ze
+                                           znakiem, rozdzielczość 0.1%
+     187       fz% (2)                     jw. z uwagą, że wartość nie uwzględnia zmiany kierunku obrotów. Rozdzielczość 0.1%
+     188       F min. zadajnika            Wartość minimalna zadajnika częstotliwości – kopia parametru 2.11. Rozdzielczość 0.1 Hz.
+                                           Wartość zadajnika (w %) określona parametrem 2.2 lub 2.3 jest przeliczana do rozdzielczości
+                                           0.1 Hz z uwzględnieniem Fmin i Fmax. 0.0 % = Fmin, 100.0 % = Fmax
+     189       F max zadajnika             Wartość maksymalna zadajnika częstotliwości – kopia parametru 2.12. Rozdzielczość 0.1 Hz.
+                                           Wartość zadajnika (w %) określona parametrem 2.2 lub 2.3 jest przeliczana do rozdzielczości
+                                           0.1 Hz z uwzględnieniem Fmin i Fmax. 0.0 % = Fmin, 100.0 % = Fmax
+     190       RTCmin                      Wartość odpowiadająca aktualnej minucie doby. Zakres 0...1439 (dotyczy układów
+                                           wyposażonych w opcjonalny moduł RTC).
+     191       RTCdzr                      Wartość odpowiadająca aktualnemu dniowi roku. Zakres 1...365 (dotyczy układów
+                                           wyposażonych w opcjonalny moduł RTC).
+     192       RTCdzm                      Wartość odpowiadająca aktualnemu dniowi miesiąca. Zakres 1...31 (dotyczy układów
+                                           wyposażonych w opcjonalny moduł RTC).
+     193       Pompa                       Wartość odpowiadająca aktualnie pracującej pompie. Zakres 0...4.
+     194       Silnik                      Wartość odpowiadająca aktualnie pracującemu silnikowi. Zakres 0...4.
+     195       Czas do końca               Czas pozostały do końca procesu suszenia [ w minutach] - odpowiednik param. 0.38
+               suszenia
+  196..197                                 Rezerwa. Wartość = zawsze 0
+     198       z n%                        Wartość względna odpowiadająca zadanej prędkości silnika w stosunku do znamionowej
+                                           prędkości obrotowej.
+     199       |z n%|                      Wartość względna odpowiadająca zadanej prędkości silnika w stosunku do znamionowej
+                                           prędkości obrotowej. Wartość bez znaku (zawsze dodatnia).
+  200..205                                 Rezerwa. Wartość = zawsze 0
+     206       kod aw                      Wartość odpowiadająca kodowi awarii.
+     207       kod os                      Wartość odpowiadająca kodowi ostrzeżenia.
+  208..217                                 Rezerwa. Wartość = zawsze 0
+     218       d naw                       Wartość odpowiadająca aktualnej średnicy nawijaka.
+  219..221                                 Rezerwa. Wartość = zawsze 0
+     222       f WeC3                      Wartość odpowiadająca częstotliwości na wejściu cyfrowym WeC3
+     223       f WeC4                      Wartość odpowiadająca częstotliwości na wejściu cyfrowym WeC4
+     224       f WeC5                      Wartość odpowiadająca częstotliwości na wejściu cyfrowym WeC5
+     225       f WeC6                      Wartość odpowiadająca częstotliwości na wejściu cyfrowym WeC6
+  226..227                                 Rezerwa. Wartość = zawsze 0
+     228       reg. n                      Wartość wyjścia regulatora prędkości
+     229       m ref                       Wartość wejścia regulatora momentu
+  230..237                                 Rezerwa. Wartość = zawsze 0
+     238       ENCpoz                      Wartość odpowiadająca bieżącej pozycji enkodera
+     239       ENCodn                      Wartość odpowiadająca referencyjnej pozycji enkodera
+     240       ENCuch                      Wartość odpowiadająca uchybowi pomiędzy pozycją bieżącą a referencyjną enkodera
+  241..255                                 Rezerwa. Wartość = zawsze 0
+PCH wbudowanego sterownika PLC
+     256       BLOK nr 1                   Sterownik PLC. Wyjście Bloku Uniwersalnego nr 1. Zależy od funkcji jaką spełnia blok. Wartość
+                                           może się zawierać od 0 do 65535
+     257       BLOK nr 2                   Sterownik PLC. Wyjście Bloku Uniwersalnego nr 2. Zależy od funkcji jaką spełnia blok. Wartość
+                                           może się zawierać od 0 do 65535
+  258...303    BLOK nr 3...48              Sterownik PLC. Wyjście Bloku Uniwersalnego nr 3...48. Zależy od funkcji jaką spełnia blok.
+                                           Wartość może się zawierać od 0 do 65535
+     304       SEKW. STAN 1                Sterownik PLC. Układ sekwensera. Wartość H = aktywny stan 1 (wartość H może  przyjmować
+                                           w danej chwili tylko jeden z PCH.304...311 i to tylko wówczas gdy sekwenser jest włączony)
+     305       SEKW. STAN 2                Sterownik PLC. Układ sekwensera. Wartość H = aktywny stan 2
+  306...311    SEKW. STAN 3...8            Sterownik PLC. Układ sekwensera. Wartość H = aktywny stan 3...8
+
+
+
+66                                                     Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS

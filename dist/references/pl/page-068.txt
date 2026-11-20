@@ -1,0 +1,80 @@
+Załącznik B – Tabela funkcji Bloków Uniwersalnych
+Załącznik B – Tabela funkcji Bloków Uniwersalnych
+
+           Każdy   blok   uniwersalny   posiada   3   wejścia   oznaczone   A,   B  i  C.  Wejścia   te   mogą   być   wskaźnikami   lub
+parametrami. W poniższej tabeli zastosowano konwencję oznaczania typu: A (duża litera A) oznacza, że wejście A jest
+parametrem (przypisuje się mu bezpośrednio jakąś wartość), natomiast  a  (mała litera a) oznacza, że wejście  a  jest
+wskaźnikiem (wskazuje na PCH, który zawiera wartość wejściową). Ta sama konwencja dotyczy wejść B i C.
+
+Uwaga: W OUT, które jest interpretowane jako wartość logiczna (0/1 lub NIE/TAK) użyto skrótu  H  dla określenia
+dowolnej wartości różnej od zera (logiczne 1). Dla określenia wartości “logiczne 0” użyto skrótu L.
+  Nr funkcji           Wyjście (OUT bloku) =                                                           Opis
+        0         a                                      Wyjście OUT bloku przyjmuje wartość określoną przez wejście a. Służy to do
+                                                         kopiowania wartości szybkozmiennych – przez 10ms po wykonaniu tego bloku
+                                                         wartość wyjścia OUT nie ulegnie zmianie, wartość wejściowa może ulec zmianie
+        1         a + b + c                              Wyjście bloku OUT jest sumą trzech wskaźników a, b i c
+        2         a * b / c                              Wyjście bloku OUT jest iloczynem a * b podzielony przez wartość c
+        3         NEG (a + b)                            Wyjście bloku OUT = - (a + b) (negacja sumy)
+        4         ABS (a + b)                            Wyjście bloku OUT = wartość bezwzględna (a + b)
+        5         a + b - c                              Wyjście bloku OUT = a + b - c
+        6         b ≤ a ≤ c                              Ograniczenie zakresu wyjścia. Wyjście bloku OUT zawiera się pomiędzy b
+                                                         (minimum) a c (maksimum) wg. zależności opisanych poniżej:
+                                                         jeżeli (a < b) → OUT = b
+                                                         jeżeli (a ≥ b) i (a ≤ c) → OUT = a
+                                                         jeżeli (a > c) → OUT = c
+        7         B ≤ a ≤ C                              jw. B i C są parametrami stałymi
+        8         a + B                                  OUT = a + B, B jest parametrem (np. dodanie stałego offsetu)
+        9         Jeżeli c = H wówczas   OUT =           Multiplekser 1 z 2. Stan logiczny wejścia c decyduje w wyborze wielkości wyjściowej
+                  b                                      a lub b                                                                      C
+                  Jeżeli c = L wówczas    OUT =                                                                                       A
+                                                                                                                                                      OUT
+                  a                                                                                                                   B
+
+       10         Jeżeli (a ≥ B) wówczas OUT =           Jeżeli wartość wejścia a jest równa lub znajduje się powyżej progu określonego
+                  a                                      wejściem B wówczas na wyjście przepisana zostanie wartość a. Jeżeli wartość
+                  Jeżeli (a < B) wówczas OUT =           wejścia a jest mniejsza bądź równa od wartości progu B wówczas na wyjście
+                  c                                      przepisana zostanie wartość wejścia c
+       11         a ≥ (b * C)                            OUT = H gdy nierówność prawdziwa, OUT = L gdy nierówność nieprawdziwa
+       12         a ≥ (b + C)                            OUT = H gdy nierówność prawdziwa, OUT = L gdy nierówność nieprawdziwa
+       13         a = (b+/-C)                            OUT = H gdy wartość a zawiera się w przedziale domkniętym <b-C...b+C>,
+                                                         OUT = L w przeciwnym przypadku
+       14         Jeżeli (a < b - C) wówczas             Histereza. Wyjście nie ulega zmianie dla a zawierającego się w przedziale
+                  OUT = L                                <b-C...b+C>                                                                       b
+                                                                                                                                             C   H
+                  Jeżeli (a > b + C) wówczas                                                                                          b-C              OUT
+                  OUT = H                                                                                                                        b+C
+                                                                                                                                      L   C
+
+                                                                                                                                            a
+       15         B + a * (C – B) / 1000                 Przeskalowanie. Wielkość wejściowa a ulega przeskalowaniu z zakresu 0...1000
+                                                         (0.0...100.0 %) do zakresu określonego parametrami B i C                                 C
+
+                                                                                                                              a    1000                OUT
+
+                                                                                                                                     0            B
+
+       16         (a – B) * 1000 / (C – B)               Przeskalowanie. Wielkość wejściowa a ulega przeskalowaniu z zakresu określonego
+                                                         parametrami B i C do zakresu 0...1000 (0.0...100.0 %)                                1000
+
+                                                                                                                            a    C                    OUT
+
+                                                                                                                                 B            0
+
+       17         Jeżeli (a = H) wówczas OUT =           Wartość OUT bloku jest uaktualniana tylko wówczas, gdy na wejściu a jest wartość H
+                  b.  Jeżeli (a = L) wówczas
+                  OUT pozostaje bez zmian.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+68                                                     Przemiennik częstotliwości typu MFC710 z panelem OP-11 – TWERD ENERGO-PLUS
