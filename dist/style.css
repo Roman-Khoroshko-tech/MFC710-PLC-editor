@@ -147,10 +147,10 @@ header{padding:12px 16px;gap:20px;align-items:center}.brand strong{display:flex;
 
 /* Engineering Tools palette; existing editor dimensions are retained. */
 .project-tools #portal-home{order:2;margin-left:-6px}
-.author-tools{border:1px solid var(--line);border-radius:7px;text-decoration:none;background:var(--teal);color:#fff;font-size:12px!important;font-weight:750;letter-spacing:-.5px}
+.author-tools{border:1px solid var(--line);border-radius:7px;text-decoration:none;background:white;color:var(--ink);font-size:12px!important;font-weight:750;letter-spacing:-.5px}
 .author-arrow{font-size:10px;margin-left:1px}
-.author-tools:hover{box-shadow:0 0 0 2px var(--soft)}
+.author-tools:hover{border-color:var(--teal);color:var(--teal)}
 .author-tools:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
 .release-version{display:inline-block;margin-left:8px;font-size:10px;color:var(--muted);letter-spacing:0;font-weight:500}
-@media screen{html[data-theme=dark] .author-tools,html[data-theme=dark] button.primary{background:var(--teal);border-color:var(--teal);color:#10241f}}
+@media screen{html[data-theme=dark] .author-tools{background:#1f3037;color:var(--ink)}html[data-theme=dark] .author-tools:hover{color:var(--teal)}html[data-theme=dark] button.primary{background:var(--teal);border-color:var(--teal);color:#10241f}}
 @media print{#portal-home,.release-version{display:none!important}}
