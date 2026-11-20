@@ -19,7 +19,7 @@ function loadPlcExample(id){
  const data=buildPlcExample(id),next=parseProject(JSON.stringify(data.project));
  clearConnectionGesture?.();globalThis.clearSelectionGroup?.();snapshot();project=next;selected=null;selectedWire=null;pending=null;
  $('#dialog').close();commit();if(!data.layoutLocked)routePlcExample();
- centerDiagram();
+ centerDiagram();globalThis.requestDiagramCenter?.();
 }
 $('#dialog').addEventListener('click',event=>{const button=event.target.closest('[data-load-example]');if(button)loadPlcExample(button.dataset.loadExample);});
 document.addEventListener('pointerdown',event=>{if(!examplesMenu.contains(event.target)&&!event.target.closest('#demo'))hideExamplesMenu();},true);

@@ -8,9 +8,9 @@ function harness(savedLanguage='uk'){
   append(child){this.children.push(child);},prepend(){},before(){},setAttribute(key,value){this.attributes[key]=value;},getAttribute(key){return this.attributes[key];},hasAttribute(key){return Object.hasOwn(this.attributes,key);},
   addEventListener(){},matches(){return false;},closest(){return null;},contains(){return false;},focus(){},remove(){},close(){this.open=false;},showModal(){this.open=true;},hasPointerCapture(){return false;},
   getBoundingClientRect(){return{x:0,y:0,left:0,top:0,right:100,bottom:100,width:100,height:100};},querySelector(){return element();},querySelectorAll(){return[];}};}
- const doc={body:element(),documentElement:element(),querySelector(key){if(!elements.has(key))elements.set(key,element());return elements.get(key);},querySelectorAll(){return[];},createElement:element,createElementNS:element,createTreeWalker(){return{nextNode:()=>null};},addEventListener(){}};
+ const doc={readyState:'loading',body:element(),documentElement:element(),querySelector(key){if(!elements.has(key))elements.set(key,element());return elements.get(key);},querySelectorAll(){return[];},createElement:element,createElementNS:element,createTreeWalker(){return{nextNode:()=>null};},addEventListener(){}};
  doc.querySelector('#category').value='Усі категорії';
- context=vm.createContext({document:doc,window:{addEventListener(type,fn){(events[type]??=[]).push(fn);}},localStorage:{getItem(key){return key==='mfc710-language'?savedLanguage:null;},setItem(){}},MutationObserver:class{constructor(callback){observers.push(callback);}observe(){}},NodeFilter:{SHOW_TEXT:4},requestAnimationFrame(fn){frames.push(fn);return frames.length;},setTimeout(){},clearTimeout(){},console});
+ context=vm.createContext({document:doc,window:{addEventListener(type,fn){(events[type]??=[]).push(fn);}},localStorage:{getItem(key){return key==='mfc710-language'?savedLanguage:null;},setItem(){}},MutationObserver:class{constructor(callback){observers.push(callback);}observe(){}},NodeFilter:{SHOW_TEXT:4},requestAnimationFrame(fn){frames.push(fn);return fn;},cancelAnimationFrame(fn){const index=frames.indexOf(fn);if(index>=0)frames.splice(index,1);},setTimeout(){},clearTimeout(){},console});
  const html=fs.readFileSync('MFC710_PLC_Studio.html','utf8');const script=html.match(/<script>([\s\S]*)<\/script>/)[1];
  vm.runInContext(script,context,{timeout:5000});
  return {context,events,frames,observers,elements,run:code=>vm.runInContext(code,context,{timeout:5000})};
@@ -21,7 +21,7 @@ test('complete offline script initializes and renders after DOMContentLoaded in 
   const h=harness(language);assert(h.elements.get('#catalog').innerHTML.includes('catalogitem'));
   for(const callback of h.events.DOMContentLoaded||[])callback();
   assert.equal(h.run('uiLanguage'),language);assert.equal(h.elements.get('#language').textContent,language==='uk'?'UA':language.toUpperCase());
-  const frame=h.frames.shift();if(frame)frame();
+  let remaining=30;while(h.frames.length&&remaining-->0)h.frames.shift()();
   assert.equal(h.frames.length,0);
  }
 });
