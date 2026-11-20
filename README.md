@@ -22,7 +22,7 @@
 
 Покрокова інструкція: [PUBLISH_GITHUB.md](PUBLISH_GITHUB.md).
 
-Для GitHub Pages використовуйте гілку **main**, папку **/docs**. У ній уже є готовий `index.html` і `.nojekyll`. Репозиторій містить вихідний код і перевірки; в GitHub Pages публікується тільки вміст `docs`.
+Для GitHub Pages використовуй Settings → Pages → Source → GitHub Actions. Workflow Test and deploy editor виконує перевірки, збірку й публікує тільки docs/.
 
 ## Розробка і перевірки
 
@@ -38,7 +38,7 @@ npm start
 
 Локальний сервер відкривається за адресою http://127.0.0.1:7310. Змінюйте код у `dist/`, потім запускайте перевірки та збирання. Не редагуйте вручну згенеровані `docs/index.html` і `MFC710_PLC_Studio.html`.
 
-GitHub Actions запускає основні перевірки при push і pull request та перевіряє відповідність готової сторінки вихідному коду. Для цього workflow не потрібні токени користувача чи окремі секрети. CI перевіряє код; публікація Pages з гілки є окремим процесом і не очікує результату цього CI.
+GitHub Actions запускає основні перевірки на push і pull request. Окремий workflow Test and deploy editor публікує docs/ тільки після успішного check. Секрети й власні токени не потрібні.
 
 Додатковий `npm run test:browser` потребує Playwright та встановленого браузера; він не входить до звичайного CI. Фактичний стан браузерної перевірки наведено у [QA_REPORT.md](QA_REPORT.md).
 
