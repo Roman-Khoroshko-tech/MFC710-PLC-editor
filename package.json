@@ -1,6 +1,6 @@
 {
   "name": "mfc710-plc-studio",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0-rc.2",
   "private": true,
   "description": "Offline visual editor for the built-in MFC710 PLC",
   "license": "UNLICENSED",

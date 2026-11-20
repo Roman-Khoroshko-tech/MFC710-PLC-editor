@@ -22,6 +22,8 @@ const UI_TRANSLATION_ROWS=`
 Зменшити масштаб|Zoom out|Pomniejsz
 Збільшити масштаб|Zoom in|Powiększ
 Центрувати схему|Fit diagram|Dopasuj schemat
+Інші інструменти автора|Other tools by the author|Inne narzędzia autora
+Ревізія 2|Revision 2|Rewizja 2
 Довідка та джерела|Help and sources|Pomoc i źródła
 Мова інтерфейсу|Interface language|Język interfejsu
 Автозбереження в браузері|Autosave in browser|Autozapis w przeglądarce
